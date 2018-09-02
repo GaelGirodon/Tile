@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.25428.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tile.CLI", "Tile.CLI\Tile.CLI.csproj", "{8486AF05-32B2-401F-AB81-73EF3BF88BA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tile.Core", "Tile.Core\Tile.Core.csproj", "{74543C0C-B8D3-40A7-8710-5B44CA1E15AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tile.GUI", "Tile.GUI\Tile.GUI.csproj", "{B68A6FAE-C40A-457A-99CF-34B9A4C88A0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8486AF05-32B2-401F-AB81-73EF3BF88BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8486AF05-32B2-401F-AB81-73EF3BF88BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8486AF05-32B2-401F-AB81-73EF3BF88BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8486AF05-32B2-401F-AB81-73EF3BF88BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74543C0C-B8D3-40A7-8710-5B44CA1E15AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74543C0C-B8D3-40A7-8710-5B44CA1E15AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74543C0C-B8D3-40A7-8710-5B44CA1E15AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74543C0C-B8D3-40A7-8710-5B44CA1E15AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68A6FAE-C40A-457A-99CF-34B9A4C88A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68A6FAE-C40A-457A-99CF-34B9A4C88A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68A6FAE-C40A-457A-99CF-34B9A4C88A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68A6FAE-C40A-457A-99CF-34B9A4C88A0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CEEC65B-3932-4A68-964C-AC20DA24DE60}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,76 @@
+﻿<Window x:Class="Tile.GUI.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tile.GUI.View"
+        xmlns:p="clr-namespace:Tile.GUI.Properties"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="480" Width="480"
+        MinHeight="540" MinWidth="480">
+    <Grid>
+        <DockPanel>
+            <!-- Header -->
+            <StackPanel DockPanel.Dock="Top" Background="#00AAEE">
+                <TextBlock Text="{x:Static p:Resources.AppName}" Margin="0,16,0,8"
+                           Foreground="#FFFFFF" FontSize="32" TextAlignment="Center" />
+                <TextBlock Text="{x:Static p:Resources.AppDescription}" Margin="0,0,0,16"
+                           Foreground="#FFFFFF" FontSize="14" TextAlignment="Center" />
+            </StackPanel>
+            <!-- Footer -->
+            <StackPanel DockPanel.Dock="Bottom" Background="#E5E5E5" IsEnabled="{Binding IsReady}">
+                <!-- Generate tile -->
+                <Button Margin="32,16,32,8" Height="32" FontSize="14" Click="GenerateTiles"
+                        Background="#00AAEE" Foreground="#FFFFFF" BorderBrush="#0088BB">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="▶" Margin="0,0,8,0"></TextBlock>
+                            <TextBlock Text="{x:Static p:Resources.TileGenerationRunButton}"
+                                       FontWeight="DemiBold"></TextBlock>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <!-- Overwrite -->
+                <Grid Margin="32,0,32,24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Content="{x:Static p:Resources.SettingsOverwrite}" Margin="0,8" Grid.ColumnSpan="2"
+                              IsChecked="{Binding Overwrite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button Grid.Column="1" Background="#EE4444" Foreground="#FFFFFF" BorderBrush="#AA2222"
+                            Visibility="Collapsed">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="❌" Margin="-4,0,4,0"></TextBlock>
+                                <TextBlock Text="{x:Static p:Resources.TileGenerationClearTiles}"></TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <!-- Body -->
+            <DockPanel Margin="32,16">
+                <!-- Applications lookup -->
+                <Button DockPanel.Dock="Top" Margin="0,8" Height="32" FontSize="14" Click="LookupApplications"
+                        Background="#DDDDDD" Foreground="#000000" BorderBrush="#AAAAAA">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#128269;" Margin="0,0,8,0"></TextBlock>
+                            <TextBlock Text="{x:Static p:Resources.TileGenerationSearchApplicationsButton}"></TextBlock>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <!-- Applications for which to generate tiles -->
+                <ListBox ItemsSource="{Binding SelectedApplications, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

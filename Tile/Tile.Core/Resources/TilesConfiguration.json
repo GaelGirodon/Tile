@@ -1,0 +1,73 @@
+{
+    "7-Zip": {
+        "ShortcutRegex": "7-Zip File Manager",
+        "IconPath": "Tile.Core.Resources.Icons.7Zip.png",
+        "BackgroundColor": "#111111",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Adobe Reader": {
+        "ShortcutRegex": "Reader",
+        "IconPath": "Tile.Core.Resources.Icons.AdobeReader.png",
+        "BackgroundColor": "#CC0000",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "FileZilla": {
+        "ShortcutRegex": "FileZilla",
+        "IconPath": "Tile.Core.Resources.Icons.FileZilla.png",
+        "BackgroundColor": "#CC0000",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Inkscape": {
+        "ShortcutRegex": "Inkscape",
+        "IconPath": "Tile.Core.Resources.Icons.Inkscape.png",
+        "BackgroundColor": "#0E0D22",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "NetBeans": {
+        "ShortcutRegex": "NetBeans",
+        "IconPath": "Tile.Core.Resources.Icons.NetBeans.png",
+        "BackgroundColor": "#00BCD4",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Notepad++": {
+        "ShortcutRegex": "Notepad[+]{2}",
+        "IconPath": "Tile.Core.Resources.Icons.NotepadPlusPlus.png",
+        "BackgroundColor": "#005F32",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "TeamViewer": {
+        "ShortcutRegex": "TeamViewer [0-9]{2}",
+        "IconPath": "Tile.Core.Resources.Icons.TeamViewer.png",
+        "BackgroundColor": "#058ee9",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "VirtualBox": {
+        "ShortcutRegex": "^Oracle VM VirtualBox",
+        "IconPath": "Tile.Core.Resources.Icons.VirtualBox.png",
+        "BackgroundColor": "#123456",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "VLC Media Player": {
+        "ShortcutRegex": "^VLC media player$",
+        "IconPath": "Tile.Core.Resources.Icons.VLC.png",
+        "BackgroundColor": "#FF7900",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    }
+}

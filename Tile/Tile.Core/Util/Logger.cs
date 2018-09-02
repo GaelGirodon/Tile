@@ -7,7 +7,7 @@ namespace Tile.Core.Util
     /// <summary>
     /// Basic logger
     /// </summary>
-    public class Logger : IDisposable
+    public class Logger
     {
         /// <summary>
         /// File containing log
@@ -22,8 +22,6 @@ namespace Tile.Core.Util
             }
         }
         private string _logFile;
-
-        private StreamWriter _writer;
 
         /// <summary>
         /// Initialize the logger
@@ -41,11 +39,7 @@ namespace Tile.Core.Util
         {
             try
             {
-                if (!File.Exists(LogFile))
-                    File.CreateText(LogFile).Close();
-                // Try to open
-                _writer = new StreamWriter(LogFile, true, Encoding.Default);
-                _writer.WriteLine("======================= " + DateTime.Now + " =======================");
+                Log("======================= " + DateTime.Now + " =======================" + Environment.NewLine);
             }
             catch (Exception e)
             {
@@ -56,13 +50,22 @@ namespace Tile.Core.Util
         #region Logging
 
         /// <summary>
+        /// Log a message only in the log file
+        /// </summary>
+        /// <param name="message">The message to log</param>
+        private void Log(string message)
+        {
+            File.AppendAllText(LogFile, message + Environment.NewLine);
+        }
+
+        /// <summary>
         /// Write a success message
         /// </summary>
         /// <param name="message">The message to write</param>
         public void Success(string message)
         {
             Console.WriteLine("SUCCESS\t  " + message);
-            _writer.WriteLine("SUCCESS\t  " + message);
+            Log("SUCCESS\t  " + message);
         }
 
         /// <summary>
@@ -72,7 +75,7 @@ namespace Tile.Core.Util
         public void Info(string message)
         {
             Console.WriteLine("INFO\t  " + message);
-            _writer.WriteLine("INFO\t  " + message);
+            Log("INFO\t  " + message);
         }
 
         /// <summary>
@@ -82,7 +85,7 @@ namespace Tile.Core.Util
         public void Warning(string message)
         {
             Console.WriteLine("WARNING\t  " + message);
-            _writer.WriteLine("WARNING\t  " + message);
+            Log("WARNING\t  " + message);
         }
 
         /// <summary>
@@ -92,15 +95,7 @@ namespace Tile.Core.Util
         public void Error(string message)
         {
             Console.Error.WriteLine("ERROR\t  " + message);
-            _writer.WriteLine("ERROR\t  " + message);
-        }
-
-        /// <summary>
-        /// Close the stream
-        /// </summary>
-        public void Dispose()
-        {
-            _writer?.Close();
+            Log("ERROR\t  " + message);
         }
 
         #endregion

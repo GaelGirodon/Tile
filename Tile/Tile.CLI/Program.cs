@@ -27,10 +27,6 @@ namespace Tile.CLI
                 Console.Error.WriteLine($"Failed generating tiles: {e.Message}");
                 return 1;
             }
-            finally
-            {
-                program.Clean();
-            }
         }
 
         #endregion
@@ -81,15 +77,6 @@ namespace Tile.CLI
             }
 
             return 0;
-        }
-        
-
-        /// <summary>
-        /// Clean resources and prepare the program to exit
-        /// </summary>
-        private void Clean()
-        {
-            _logger?.Dispose();
         }
 
         #endregion

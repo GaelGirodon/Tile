@@ -18,7 +18,6 @@ and set them up in the start menu.
 - [ ] Add new tiles presets
 - [ ] Implement the "Clean tiles" feature
 - [ ] Prevent replacing "original" tiles
-- [ ] Add an icon to the application
 
 ### Release, packaging & documentation
 
@@ -26,6 +25,7 @@ and set them up in the start menu.
 - [ ] Merge all `.dll` into a single `.exe` file
 - [ ] Improve [README.md](README.md)
 - [ ] Add a contribution guide
+- [ ] Improve the application icon
 
 ## License
 

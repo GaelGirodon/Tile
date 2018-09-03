@@ -137,18 +137,18 @@ namespace Tile.Core.Engine
             // Tile generation
             if (tileConfig.GenerationModeAsEnum == TileGenerationMode.Custom)
             {
-                mediumTile = GenerateTile(TileDimensions.MEDIUM_TILE_SIZE, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, TileDimensions.MEDIUM_TILE_SIZE);
-                smallTile = GenerateTile(TileDimensions.SMALL_TILE_SIZE, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, TileDimensions.SMALL_TILE_SIZE);
+                mediumTile = GenerateTile(_settings.Sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, _settings.Sizes.Medium.TileSize);
+                smallTile = GenerateTile(_settings.Sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, _settings.Sizes.Small.TileSize);
             }
             else
             {
-                mediumTile = GenerateTile(TileDimensions.MEDIUM_TILE_SIZE, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, TileDimensions.MEDIUM_ICON_SIZE.Scale(tileConfig.IconScale.MediumTile),
-                    tileConfig.GenerationModeAsEnum == TileGenerationMode.Adjusted ? -32 : 0);
-                smallTile = GenerateTile(TileDimensions.SMALL_TILE_SIZE, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, TileDimensions.SMALL_ICON_SIZE.Scale(tileConfig.IconScale.SmallTile));
+                mediumTile = GenerateTile(_settings.Sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, _settings.Sizes.Medium.IconSize.Scale(tileConfig.IconScale.MediumTile),
+                    tileConfig.GenerationModeAsEnum == TileGenerationMode.Adjusted ? -16 : 0);
+                smallTile = GenerateTile(_settings.Sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, _settings.Sizes.Small.IconSize.Scale(tileConfig.IconScale.SmallTile));
             }
 
             // Store the tiles in Assets folder

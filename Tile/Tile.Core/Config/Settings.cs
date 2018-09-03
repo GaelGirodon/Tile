@@ -43,15 +43,20 @@ namespace Tile.Core.Config
         public List<string> ShortcutsLocations { get; set; }
 
         /// <summary>
-        /// Indicate wether existing tile files
-        /// must be overwritten or not
-        /// </summary>
-        public bool Overwrite { get; set; }
-
-        /// <summary>
         /// Path to the tiles configuration file
         /// </summary>
         public string TilesConfigPath { get; set; }
+
+        /// <summary>
+        /// Tiles and icons dimensions
+        /// </summary>
+        public TileSetSizes Sizes { get; set; }
+
+        /// <summary>
+        /// Indicate whether existing tile files
+        /// must be overwritten or not
+        /// </summary>
+        public bool Overwrite { get; set; }
 
         #endregion
 
@@ -63,12 +68,14 @@ namespace Tile.Core.Config
         public Settings()
         {
             LogFilePath = DEFAULT_LOG_PATH;
-            Overwrite = false;
             ShortcutsLocations = new List<string>
             {
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs"),
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu), "Programs")
             };
+            Sizes = new TileSetSizes();
+            TilesConfigPath = null; // Load embedded configuration file by default
+            Overwrite = false;
         }
 
         #endregion

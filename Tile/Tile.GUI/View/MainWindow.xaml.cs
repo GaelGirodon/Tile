@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -56,17 +57,16 @@ namespace Tile.GUI.View
         /// <summary>
         /// Initialize the window.
         /// </summary>
-        public MainWindow()
-        {
+        public MainWindow() {
+            // Message manager
+            _msg = new MessageManager();
+
             Init();
             InitializeComponent();
 
             // Initialize the view model
             _viewModel = new MainWindowViewModel(_settings);
             DataContext = _viewModel;
-
-            // Message manager
-            _msg = new MessageManager(_logger);
         }
 
         #region Process steps
@@ -75,16 +75,27 @@ namespace Tile.GUI.View
         /// Initialize the generation context: settings, logger,
         /// tiles configuration and tile generator.
         /// </summary>
-        public void Init()
-        {
+        public void Init() {
             // Load settings
-            _settings = Settings.LoadOrDefault(Settings.SETTINGS_PATH);
+            try {
+                _settings = Settings.LoadOrDefault(Settings.SETTINGS_PATH);
+                _logger = new Logger(_settings.LogFilePath);
+            } catch (Exception ex) {
+                _msg.InvalidSettings(ex);
+                Environment.Exit(1);
+                return;
+            }
             // Initialize the logger
-            _logger = new Logger(_settings.LogFilePath);
+            _msg.Logger = _logger;
             _logger.Init();
             _logger.Success("Loaded settings");
             // Load tiles configuration
-            _tilesConfig = TileConfig.Load(_settings.TilesConfigPath);
+            try {
+                _tilesConfig = TileConfig.Load(_settings.TilesConfigPath);
+            } catch (Exception ex) {
+                _msg.InvalidTilesConfig(ex);
+                Environment.Exit(2);
+            }
             _logger.Success("Loaded tiles configuration");
             // Initialize the tile generator
             _generator = new TileGenerator(_settings, _logger);
@@ -96,19 +107,15 @@ namespace Tile.GUI.View
         /// </summary>
         /// <param name="sender">Event sender</param>
         /// <param name="e">Event arguments</param>
-        private void LookupApplications(object sender, RoutedEventArgs e)
-        {
+        private void LookupApplications(object sender, RoutedEventArgs e) {
             // Lookup applications (shortcuts & targets)
             var apps = _generator.LookupApps(_tilesConfig);
-            if (apps.Count == 0) // No application found
-            {
+            if (apps.Count == 0) { // No application found
                 _msg.NoApplicationFound();
                 _apps = null;
                 _viewModel.SelectedApplications = null;
                 _viewModel.IsReady = false;
-            }
-            else // Ready to select applications and generate tiles
-            {
+            } else { // Ready to select applications and generate tiles
                 _msg.ApplicationsFound(apps.Count);
                 _apps = apps;
                 _viewModel.SelectedApplications = new ObservableCollection<CheckedItem>(
@@ -122,11 +129,9 @@ namespace Tile.GUI.View
         /// </summary>
         /// <param name="sender">Event sender</param>
         /// <param name="e">Event arguments</param>
-        public void GenerateTiles(object sender, RoutedEventArgs e)
-        {
+        public void GenerateTiles(object sender, RoutedEventArgs e) {
             var selectedApps = _viewModel.SelectedApplications.Where(a => a.IsChecked).Select(a => a.Name);
-            if (!selectedApps.Any())
-            {
+            if (!selectedApps.Any()) {
                 _msg.NoApplicationSelected();
                 return;
             } // else: ready to generate tiles

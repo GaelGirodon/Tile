@@ -61,8 +61,7 @@ namespace Tile.GUI.ViewModel
         /// </summary>
         private Settings _settings;
 
-        public MainWindowViewModel(Settings settings)
-        {
+        public MainWindowViewModel(Settings settings) {
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _isReady = false;
         }
@@ -80,8 +79,7 @@ namespace Tile.GUI.ViewModel
         /// PropertyChanged event trigger
         /// </summary>
         /// <param name="PropertyName">Changed property name</param>
-        protected void OnPropertyChanged(string PropertyName)
-        {
+        protected void OnPropertyChanged(string PropertyName) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
 

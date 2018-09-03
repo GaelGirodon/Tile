@@ -7,10 +7,86 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "Adobe After Effects": {
+        "ShortcutRegex": "After Effects",
+        "IconPath": "Tile.Core.Resources.Icons.AdobeAfterEffects.png",
+        "BackgroundColor": "#994CFF",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Adobe Illustrator": {
+        "ShortcutRegex": "Illustrator",
+        "IconPath": "Tile.Core.Resources.Icons.AdobeIllustrator.png",
+        "BackgroundColor": "#FF8B26",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Adobe Media Encoder": {
+        "ShortcutRegex": "Media Encoder",
+        "IconPath": "Tile.Core.Resources.Icons.AdobeMediaEncoder.png",
+        "BackgroundColor": "#6C4CFF",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted",
+		"IconScale": {
+			"MediumTile": 0.75,
+			"SmallTile": 0.75
+		}
+    },
+    "Adobe Photoshop": {
+        "ShortcutRegex": "Photoshop",
+        "IconPath": "Tile.Core.Resources.Icons.AdobePhotoshop.png",
+        "BackgroundColor": "#3270FF",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Adobe Premiere Pro": {
+        "ShortcutRegex": "Premiere Pro",
+        "IconPath": "Tile.Core.Resources.Icons.AdobePremierePro.png",
+        "BackgroundColor": "#C64CFF",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "Adobe Reader": {
         "ShortcutRegex": "Reader",
         "IconPath": "Tile.Core.Resources.Icons.AdobeReader.png",
         "BackgroundColor": "#CC0000",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Affinity Designer": {
+        "ShortcutRegex": "Designer",
+        "IconPath": "Tile.Core.Resources.Icons.AffinityDesigner.png",
+        "BackgroundColor": "#204CB2",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Atom": {
+        "ShortcutRegex": "Atom",
+        "IconPath": "Tile.Core.Resources.Icons.Atom.png",
+        "BackgroundColor": "#30DB8D",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Discord": {
+        "ShortcutRegex": "Discord",
+        "IconPath": "Tile.Core.Resources.Icons.Discord.png",
+        "BackgroundColor": "#8795F2",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Docker": {
+        "ShortcutRegex": "Docker",
+        "IconPath": "Tile.Core.Resources.Icons.Docker.png",
+        "BackgroundColor": "#3C73D1",
         "ForegroundText": "Light",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
@@ -31,6 +107,54 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "JetBrains CLion": {
+        "ShortcutRegex": "CLion",
+        "IconPath": "Tile.Core.Resources.Icons.JetBrainsCLion.png",
+        "BackgroundColor": "#AD3D2E",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "JetBrains IntelliJ IDEA": {
+        "ShortcutRegex": "IntelliJ",
+        "IconPath": "Tile.Core.Resources.Icons.JetBrainsIntelliJIDEA.png",
+        "BackgroundColor": "#105DD1",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "JetBrains PhpStorm": {
+        "ShortcutRegex": "PhpStorm",
+        "IconPath": "Tile.Core.Resources.Icons.JetBrainsPhpStorm.png",
+        "BackgroundColor": "#9517D8",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "JetBrains Rider": {
+        "ShortcutRegex": "Rider",
+        "IconPath": "Tile.Core.Resources.Icons.JetBrainsRider.png",
+        "BackgroundColor": "#28B716",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "JetBrains RubyMine": {
+        "ShortcutRegex": "RubyMine",
+        "IconPath": "Tile.Core.Resources.Icons.JetBrainsRubyMine.png",
+        "BackgroundColor": "#B71243",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "JetBrains WebStorm": {
+        "ShortcutRegex": "WebStorm",
+        "IconPath": "Tile.Core.Resources.Icons.JetBrainsWebStorm.png",
+        "BackgroundColor": "#15CAD3",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "NetBeans": {
         "ShortcutRegex": "NetBeans",
         "IconPath": "Tile.Core.Resources.Icons.NetBeans.png",
@@ -47,10 +171,58 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "pgAdmin": {
+        "ShortcutRegex": "pgAdmin",
+        "IconPath": "Tile.Core.Resources.Icons.PgAdmin.png",
+        "BackgroundColor": "#4275B7",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Skype": {
+        "ShortcutRegex": "Skype",
+        "IconPath": "Tile.Core.Resources.Icons.Skype.png",
+        "BackgroundColor": "#00BBFF",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Slack": {
+        "ShortcutRegex": "Slack",
+        "IconPath": "Tile.Core.Resources.Icons.Slack.png",
+        "BackgroundColor": "#444444",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Atlassian Source Tree": {
+        "ShortcutRegex": "SourceTree",
+        "IconPath": "Tile.Core.Resources.Icons.SourceTree.png",
+        "BackgroundColor": "#182870",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Steam": {
+        "ShortcutRegex": "Steam",
+        "IconPath": "Tile.Core.Resources.Icons.Steam.png",
+        "BackgroundColor": "#302D2A",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Sublime Text": {
+        "ShortcutRegex": "Sublime",
+        "IconPath": "Tile.Core.Resources.Icons.SublimeText.png",
+        "BackgroundColor": "#FF9400",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "TeamViewer": {
         "ShortcutRegex": "TeamViewer [0-9]{2}",
         "IconPath": "Tile.Core.Resources.Icons.TeamViewer.png",
-        "BackgroundColor": "#058ee9",
+        "BackgroundColor": "#058EE9",
         "ForegroundText": "Light",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
@@ -67,6 +239,20 @@
         "ShortcutRegex": "^VLC media player$",
         "IconPath": "Tile.Core.Resources.Icons.VLC.png",
         "BackgroundColor": "#FF7900",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "VMware Workstation": {
+        "ShortcutRegex": "VMware.*Workstation",
+        "IconPath": "Tile.Core.Resources.Icons.VMWareWorkstation.png",
+        "BackgroundColor": "#FFBF00",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "WAMP": {
+        "ShortcutRegex": "(Wamp|WAMP)",
+        "IconPath": "Tile.Core.Resources.Icons.WAMP.png",
+        "BackgroundColor": "#FF0094",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     }

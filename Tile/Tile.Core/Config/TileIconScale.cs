@@ -8,15 +8,10 @@
         /// <summary>
         /// Default scale (1.0f ; 1.0f)
         /// </summary>
-        public static TileIconScale Default {
-            get {
-                return new TileIconScale()
-                {
-                    MediumTile = 1.0f,
-                    SmallTile = 1.0f
-                };
-            }
-        }
+        public static TileIconScale Default => new TileIconScale() {
+            MediumTile = 1.0f,
+            SmallTile = 1.0f
+        };
 
         /// <summary>
         /// Custom icon scale on the medium tile
@@ -33,8 +28,7 @@
         /// </summary>
         /// <param name="_mediumTile">Custom icon scale on the medium tile</param>
         /// <param name="_smallTile">Custom icon scale on the small tile</param>
-        public TileIconScale(float _mediumTile, float _smallTile)
-        {
+        public TileIconScale(float _mediumTile, float _smallTile) {
             MediumTile = _mediumTile;
             SmallTile = _smallTile;
         }

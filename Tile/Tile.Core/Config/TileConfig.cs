@@ -33,8 +33,7 @@ namespace Tile.Core.Config
         /// <summary>
         /// Path to the icon
         /// </summary>
-        public string IconPath
-        {
+        public string IconPath {
             get => _iconPath;
             set {
                 if (value != null
@@ -43,7 +42,7 @@ namespace Tile.Core.Config
                     || File.Exists(value)))
                     _iconPath = value;
                 else
-                    throw new FileNotFoundException("The icon \"" + value + "\" can't be found");
+                    throw new FileNotFoundException($"The icon '{value}' can't be found.");
             }
         }
         private string _iconPath;
@@ -73,7 +72,7 @@ namespace Tile.Core.Config
         /// Indicates if the application name must be shown on the medium tile
         /// </summary>
         public bool ShowNameOnMediumTile { get; set; } = true;
-        
+
         /// <summary>
         /// Indicates the generation mode (how to generate the tiles)
         /// </summary>
@@ -98,7 +97,9 @@ namespace Tile.Core.Config
         /// Indicate wether the tile is ready to be generated or not
         /// </summary>
         /// <returns>true if the tile is ready to be generated</returns>
-        public bool IsReady() => _backgroundColor != null && _iconPath != null;
+        public bool IsReady() {
+            return _backgroundColor != null && _iconPath != null;
+        }
 
         #endregion
 
@@ -110,15 +111,14 @@ namespace Tile.Core.Config
         /// </summary>
         /// <param name="path">Path to the tiles configuration file</param>
         /// <returns>The tiles configuration</returns>
-        public static Dictionary<string, TileConfig> Load(string path = null)
-        {
+        public static Dictionary<string, TileConfig> Load(string path = null) {
             string content;
             if (path == null)
                 content = Resources.TilesConfiguration;
             else if (File.Exists(path))
                 content = File.ReadAllText(path);
             else
-                throw new FileNotFoundException("The tiles configuration can't be found");
+                throw new FileNotFoundException("The tiles configuration can't be found.");
             // else
             return JsonConvert.DeserializeObject<Dictionary<string, TileConfig>>(content);
         }

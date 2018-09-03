@@ -17,16 +17,12 @@ namespace Tile.Core.Util
         /// <param name="searchPattern">Search string files must match</param>
         /// <param name="paths">Directories to explore</param>
         /// <returns>Paths to found files</returns>
-        public static List<string> FindFiles(string searchPattern, List<string> paths)
-        {
+        public static List<string> FindFiles(string searchPattern, List<string> paths) {
             var files = new List<string>();
             foreach (var path in paths)
-                try
-                {
+                try {
                     files.AddRange(Directory.GetFiles(path, searchPattern, SearchOption.AllDirectories));
-                }
-                catch (Exception)
-                {
+                } catch (Exception) {
                     continue;
                 }
             return files;
@@ -37,16 +33,14 @@ namespace Tile.Core.Util
         /// </summary>
         /// <param name="shortcutPath">Path to the shortcut file (.lnk)</param>
         /// <returns>Path to the file targetted by the shortcut</returns>
-        public static string GetShortcutTargetFile(string shortcutPath)
-        {
+        public static string GetShortcutTargetFile(string shortcutPath) {
             string pathOnly = Path.GetDirectoryName(shortcutPath);
             string filenameOnly = Path.GetFileName(shortcutPath);
 
             var shell = new Shell();
             Folder folder = shell.NameSpace(pathOnly);
             FolderItem folderItem = folder.ParseName(filenameOnly);
-            if (folderItem != null)
-            {
+            if (folderItem != null) {
                 ShellLinkObject link = (ShellLinkObject)folderItem.GetLink;
                 return link.Path;
             }

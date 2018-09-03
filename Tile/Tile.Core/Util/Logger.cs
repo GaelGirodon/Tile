@@ -39,7 +39,7 @@ namespace Tile.Core.Util
         {
             try
             {
-                Log("======================= " + DateTime.Now + " =======================" + Environment.NewLine);
+                Log("======================= " + DateTime.Now + " =======================");
             }
             catch (Exception e)
             {

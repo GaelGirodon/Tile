@@ -97,7 +97,7 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Found {0} applications to process..
+        ///   Looks up a localized string similar to Found {0} applications to process. Select the applications for which to generate custom tiles..
         /// </summary>
         public static string MessageLookupFound {
             get {
@@ -115,7 +115,7 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At least one application should be selected.
+        ///   Looks up a localized string similar to At least one application should be selected to generate custom tiles..
         /// </summary>
         public static string MessageNoApplicationSelected {
             get {
@@ -133,7 +133,7 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Processed {0}/{1} application(s) ({2})..
+        ///   Looks up a localized string similar to Processed {0}/{1} application(s) ({2}). Pin the applications on the start menu and the custom tiles will be displayed..
         /// </summary>
         public static string MessageProcessedApplications {
             get {

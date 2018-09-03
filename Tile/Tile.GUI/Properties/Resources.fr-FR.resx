@@ -130,19 +130,19 @@
     <value>La configuration des tuiles est invalide.</value>
   </data>
   <data name="MessageLookupFound" xml:space="preserve">
-    <value>{0} application(s) trouvée(s).</value>
+    <value>{0} application(s) trouvée(s). Sélectionnez les applications pour lesquelles générer des tuiles personnalisées.</value>
   </data>
   <data name="MessageLookupNoApplication" xml:space="preserve">
     <value>Aucune application n'a pu être trouvée avec le paramétrage actuel.</value>
   </data>
   <data name="MessageNoApplicationSelected" xml:space="preserve">
-    <value>Au moins une application doit être sélectionnée.</value>
+    <value>Au moins une application doit être sélectionnée pour pouvoir générer des tuiles personnalisées.</value>
   </data>
   <data name="MessageNoTiles" xml:space="preserve">
     <value>Aucune tuile n'a pu être générée, veuillez vérifier le paramétrage ou consultez la journalisation pour plus d'informations.</value>
   </data>
   <data name="MessageProcessedApplications" xml:space="preserve">
-    <value>{0}/{1} application(s) traitées ({2}).</value>
+    <value>{0}/{1} application(s) traitées ({2}). Épinglez les applications souhaitées au menu démarrer pour afficher les tuiles personnalisées.</value>
   </data>
   <data name="SettingsOverwrite" xml:space="preserve">
     <value>Remplacer les tuiles existantes</value>

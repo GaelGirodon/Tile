@@ -130,19 +130,19 @@
     <value>The tiles configuration is invalid.</value>
   </data>
   <data name="MessageLookupFound" xml:space="preserve">
-    <value>Found {0} applications to process.</value>
+    <value>Found {0} applications to process. Select the applications for which to generate custom tiles.</value>
   </data>
   <data name="MessageLookupNoApplication" xml:space="preserve">
     <value>No application to process, check the shortcuts locations.</value>
   </data>
   <data name="MessageNoApplicationSelected" xml:space="preserve">
-    <value>At least one application should be selected</value>
+    <value>At least one application should be selected to generate custom tiles.</value>
   </data>
   <data name="MessageNoTiles" xml:space="preserve">
     <value>No tiles were generated, check settings or logs for additional information.</value>
   </data>
   <data name="MessageProcessedApplications" xml:space="preserve">
-    <value>Processed {0}/{1} application(s) ({2}).</value>
+    <value>Processed {0}/{1} application(s) ({2}). Pin the applications on the start menu and the custom tiles will be displayed.</value>
   </data>
   <data name="SettingsOverwrite" xml:space="preserve">
     <value>Overwrite existing tiles</value>

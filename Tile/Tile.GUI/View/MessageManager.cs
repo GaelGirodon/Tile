@@ -35,36 +35,31 @@ namespace Tile.GUI.View
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        public void NoApplicationFound()
-        {
+        public void NoApplicationFound() {
             Logger?.Warning("No application to process, check the shortcuts locations");
             MessageBox.Show(Properties.Resources.MessageLookupNoApplication,
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 
-        public void ApplicationsFound(int appsCount)
-        {
+        public void ApplicationsFound(int appsCount) {
             Logger?.Success($"Found {appsCount} applications to process");
             MessageBox.Show(string.Format(Properties.Resources.MessageLookupFound, appsCount),
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        public void NoApplicationSelected()
-        {
+        public void NoApplicationSelected() {
             MessageBox.Show(Properties.Resources.MessageNoApplicationSelected,
                     string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 
-        public void TilesGenerated(int processedCount, int total, List<string> processedApps)
-        {
+        public void TilesGenerated(int processedCount, int total, List<string> processedApps) {
             string appsStr = string.Join(", ", processedApps);
             Logger?.Success($"Processed {processedCount}/{total} application(s) ({appsStr})");
             MessageBox.Show(string.Format(Properties.Resources.MessageProcessedApplications, processedCount, total, appsStr),
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        public void NoTilesGenerated()
-        {
+        public void NoTilesGenerated() {
             Logger?.Info("No tiles were generated");
             MessageBox.Show(Properties.Resources.MessageNoTiles,
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);

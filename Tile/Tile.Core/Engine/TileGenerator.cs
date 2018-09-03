@@ -39,8 +39,7 @@ namespace Tile.Core.Engine
         /// </summary>
         /// <param name="settings">Generation settings</param>
         /// <param name="logger">The logger</param>
-        public TileGenerator(Settings settings, Logger logger)
-        {
+        public TileGenerator(Settings settings, Logger logger) {
             _settings = settings ?? throw new ArgumentNullException(nameof(settings));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
@@ -54,38 +53,32 @@ namespace Tile.Core.Engine
         /// </summary>
         /// <param name="tilesConfig">Tiles configuration</param>
         /// <returns>Found applications</returns>
-        public Dictionary<string, AppShortcut> LookupApps(Dictionary<string, TileConfig> tilesConfig)
-        {
+        public Dictionary<string, AppShortcut> LookupApps(Dictionary<string, TileConfig> tilesConfig) {
             // Find all shortcuts in the given locations
             var shortcuts = FileUtilities.FindFiles("*.lnk", _settings.ShortcutsLocations);
             var apps = new Dictionary<string, AppShortcut>();
-            if (shortcuts.Count == 0)
-            {
+            if (shortcuts.Count == 0) {
                 _logger.Error("No shortcuts were found in the given locations");
                 return apps;
             } // else
             _logger.Success($"{shortcuts.Count} shortcuts were found in the given locations");
 
             // Find shortcuts associated to tiles configuration
-            foreach (var t in tilesConfig)
-            {
+            foreach (var t in tilesConfig) {
                 Regex r = new Regex(t.Value.ShortcutRegex, RegexOptions.IgnoreCase);
                 // Look for shortcuts matching tile configuration
                 var matches = shortcuts.Where(s => r.IsMatch(Path.GetFileNameWithoutExtension(s)));
 
                 if (matches.Count() > 1)
                     _logger.Warning($"Found more than 1 shortcut for '{t.Key}', skipping this item...");
-                else if (matches.Count() == 1)
-                {
+                else if (matches.Count() == 1) {
                     var shortcut = matches.First();
                     var target = FileUtilities.GetShortcutTargetFile(shortcut);
-                    if (Path.GetExtension(target) == ".exe")
-                    {
+                    if (Path.GetExtension(target) == ".exe") {
                         // The application can be processed
                         _logger.Success($"The '{t.Key}' shortcut and executable file found!");
                         apps.Add(t.Key, new AppShortcut { ShortcutPath = shortcut, ExecutablePath = target });
-                    }
-                    else
+                    } else
                         _logger.Warning($"The '{t.Key}' shortcut is not associated to a .exe file,"
                             + " skipping this item...");
                 }
@@ -99,26 +92,20 @@ namespace Tile.Core.Engine
         /// <param name="tilesConfig">The tiles configuration</param>
         /// <param name="apps">The applications information</param>
         /// <returns>Processed applications names</returns>
-        public List<string> GenerateTiles(Dictionary<string, TileConfig> tilesConfig, Dictionary<string, AppShortcut> apps)
-        {
+        public List<string> GenerateTiles(Dictionary<string, TileConfig> tilesConfig, Dictionary<string, AppShortcut> apps) {
             var processedApps = new List<string>();
-            if (apps.Count == 0)
-            {
+            if (apps.Count == 0) {
                 _logger.Info("No tile can be generated for the requested applications");
                 return processedApps;
             } // else
             _logger.Info($"Ready to process the following applications: {string.Join(", ", apps.Select(app => app.Key))}");
-            
-            foreach (var app in apps)
-            {
-                try
-                {
+
+            foreach (var app in apps) {
+                try {
                     Generate(tilesConfig[app.Key], app.Value, _settings.Overwrite);
                     processedApps.Add(app.Key);
                     _logger.Success($"'{app.Key} tile successfully generated!");
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     _logger.Error($"Error processing '{app.Key}': {ex.Message}");
                 }
             }
@@ -130,20 +117,16 @@ namespace Tile.Core.Engine
         /// Generate tiles and set it up
         /// </summary>
         /// <param name="tileConfig">Tile configuration</param>
-        public void Generate(TileConfig tileConfig, AppShortcut app, bool overwrite = false)
-        {
+        public void Generate(TileConfig tileConfig, AppShortcut app, bool overwrite = false) {
             Image mediumTile, smallTile;
-            
+
             // Tile generation
-            if (tileConfig.GenerationModeAsEnum == TileGenerationMode.Custom)
-            {
+            if (tileConfig.GenerationModeAsEnum == TileGenerationMode.Custom) {
                 mediumTile = GenerateTile(_settings.Sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
                     tileConfig.IconPath, _settings.Sizes.Medium.TileSize);
                 smallTile = GenerateTile(_settings.Sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
                     tileConfig.IconPath, _settings.Sizes.Small.TileSize);
-            }
-            else
-            {
+            } else {
                 mediumTile = GenerateTile(_settings.Sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
                     tileConfig.IconPath, _settings.Sizes.Medium.IconSize.Scale(tileConfig.IconScale.MediumTile),
                     tileConfig.GenerationModeAsEnum == TileGenerationMode.Adjusted ? -16 : 0);
@@ -162,8 +145,7 @@ namespace Tile.Core.Engine
             // Generate the XML file (background color, logo paths, foreground color, and XML filename)
             string xml = Path.Combine(appPath, Path.GetFileNameWithoutExtension(app.ExecutablePath)
                 + AssetsConstants.VisualElementsManifestXmlFileExtension);
-            if (!overwrite && File.Exists(xml))
-            {
+            if (!overwrite && File.Exists(xml)) {
                 Directory.Delete(assetsPath);
                 throw new Exception("Visual Elements Manifest XML file already exists");
             }
@@ -189,8 +171,7 @@ namespace Tile.Core.Engine
         /// (X centered and Y centered by default)</param>
         /// <returns>The generated tile</returns>
         public Image GenerateTile(Size tileSize, Color backgroundColor,
-            string iconFile, Size iconSize, int yOffset = 0)
-        {
+            string iconFile, Size iconSize, int yOffset = 0) {
             // Create a new image
             var tile = new Bitmap(tileSize.Width, tileSize.Height);
             var graphics = Graphics.FromImage(tile);
@@ -223,13 +204,14 @@ namespace Tile.Core.Engine
         /// </summary>
         /// <returns>XML file content</returns>
         public string GenerateXMLVisualElements(Color backgroundColor,
-            TileForegroundColor foregroundColor, bool showNameOnMediumTile)
-            => Resources.VisualElementsManifest
-                .Replace("{BackgroundColor}", ColorTranslator.ToHtml(backgroundColor))
-                .Replace("{ShowNameOnSquare150x150Logo}", showNameOnMediumTile ? "on" : "off")
-                .Replace("{ForegroundText}", foregroundColor.ToString().ToLower())
-                .Replace("{Square150x150Logo}", AssetsConstants.AssetsFolderName + '\\' + AssetsConstants.MediumTileFileName)
-                .Replace("{Square70x70Logo}", AssetsConstants.AssetsFolderName + '\\' + AssetsConstants.SmallTileFileName);
+            TileForegroundColor foregroundColor, bool showNameOnMediumTile) {
+            return Resources.VisualElementsManifest
+                           .Replace("{BackgroundColor}", ColorTranslator.ToHtml(backgroundColor))
+                           .Replace("{ShowNameOnSquare150x150Logo}", showNameOnMediumTile ? "on" : "off")
+                           .Replace("{ForegroundText}", foregroundColor.ToString().ToLower())
+                           .Replace("{Square150x150Logo}", AssetsConstants.AssetsFolderName + '\\' + AssetsConstants.MediumTileFileName)
+                           .Replace("{Square70x70Logo}", AssetsConstants.AssetsFolderName + '\\' + AssetsConstants.SmallTileFileName);
+        }
 
         #endregion
     }

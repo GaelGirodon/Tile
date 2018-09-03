@@ -110,14 +110,12 @@ namespace Tile.GUI.View
         private void LookupApplications(object sender, RoutedEventArgs e) {
             // Lookup applications (shortcuts & targets)
             var apps = _generator.LookupApps(_tilesConfig);
-            if (apps.Count == 0) // No application found
-            {
+            if (apps.Count == 0) { // No application found
                 _msg.NoApplicationFound();
                 _apps = null;
                 _viewModel.SelectedApplications = null;
                 _viewModel.IsReady = false;
-            } else // Ready to select applications and generate tiles
-              {
+            } else { // Ready to select applications and generate tiles
                 _msg.ApplicationsFound(apps.Count);
                 _apps = apps;
                 _viewModel.SelectedApplications = new ObservableCollection<CheckedItem>(

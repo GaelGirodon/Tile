@@ -69,8 +69,7 @@ namespace Tile.Core.Config
         /// </summary>
         /// <param name="tileSize">Tile size (px)</param>
         /// <param name="iconSize">Icon size (px)</param>
-        public TileSizes(int tileSize, int iconSize)
-        {
+        public TileSizes(int tileSize, int iconSize) {
             TileSize = new Size(tileSize, tileSize);
             IconSize = new Size(iconSize, iconSize);
         }
@@ -84,10 +83,9 @@ namespace Tile.Core.Config
         /// </summary>
         /// <param name="value">The value to validate and parse</param>
         /// <returns>The size object</returns>
-        public static Size ParseSize(int[] value)
-        {
+        public static Size ParseSize(int[] value) {
             if (value == null || value.Length != 2 || value[0] <= 0 || value[1] <= 0)
-                throw new ArgumentException($"The size {value} is invalid");
+                throw new ArgumentException($"The size {value} is invalid.");
             return new Size(value[0], value[1]);
         }
 

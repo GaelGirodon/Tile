@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Tile.Core.Config;
 using Tile.Core.Engine;
 using Tile.Core.Util;
@@ -15,15 +14,11 @@ namespace Tile.CLI
         /// </summary>
         /// <param name="args">Command-line arguments</param>
         [STAThread]
-        static int Main(string[] args)
-        {
+        static int Main(string[] args) {
             var program = new Program();
-            try
-            {
+            try {
                 return program.Run(args);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 Console.Error.WriteLine($"Failed generating tiles: {e.Message}");
                 return 1;
             }
@@ -47,8 +42,7 @@ namespace Tile.CLI
         /// </summary>
         /// <param name="args">Command line arguments</param>
         /// <returns>Exit code</returns>
-        private int Run(string[] args = null)
-        {
+        private int Run(string[] args = null) {
             var settings = Settings.LoadOrDefault(Settings.SETTINGS_PATH);
             _logger = new Logger(settings.LogFilePath);
             _logger.Init();
@@ -59,13 +53,10 @@ namespace Tile.CLI
             _logger.Success("Initialized tiles generator");
 
             var apps = generator.LookupApps(tilesConfig);
-            if (apps.Count == 0)
-            {
+            if (apps.Count == 0) {
                 _logger.Warning("No applications to process, check the shortcuts locations");
                 return 1;
-            }
-            else
-            {
+            } else {
                 _logger.Success($"Found {apps.Count} applications to process");
                 if (args.Length > 0)
                     apps = apps.Keep(args); // Only process given apps

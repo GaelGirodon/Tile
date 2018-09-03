@@ -89,11 +89,9 @@ namespace Tile.Core.Config
         /// <summary>
         /// Initialize the settings with default values
         /// </summary>
-        public Settings()
-        {
+        public Settings() {
             LogFilePath = DEFAULT_LOG_PATH;
-            ShortcutsLocations = new List<string>
-            {
+            ShortcutsLocations = new List<string> {
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs"),
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu), "Programs")
             };
@@ -111,8 +109,7 @@ namespace Tile.Core.Config
         /// </summary>
         /// <param name="path">Path to the settings file</param>
         /// <returns>The settings</returns>
-        public static Settings Load(string path)
-        {
+        public static Settings Load(string path) {
             if (!File.Exists(path))
                 throw new FileNotFoundException("The settings can't be found");
             // else
@@ -126,8 +123,7 @@ namespace Tile.Core.Config
         /// </summary>
         /// <param name="path">Path to the settings file</param>
         /// <returns>The settings</returns>
-        public static Settings LoadOrDefault(string path)
-        {
+        public static Settings LoadOrDefault(string path) {
             return File.Exists(path) ? Load(path) : new Settings();
         }
 

@@ -16,8 +16,7 @@ namespace Tile.Core.Util
         /// <param name="input">Input dictionary</param>
         /// <param name="keys">Keys to keep</param>
         /// <returns>The filtered dictionary</returns>
-        public static Dictionary<TKey, TValue> Keep<TKey, TValue>(this Dictionary<TKey, TValue> input, IEnumerable<TKey> keys)
-        {
+        public static Dictionary<TKey, TValue> Keep<TKey, TValue>(this Dictionary<TKey, TValue> input, IEnumerable<TKey> keys) {
             var output = new Dictionary<TKey, TValue>();
             foreach (var key in keys)
                 if (input.ContainsKey(key))

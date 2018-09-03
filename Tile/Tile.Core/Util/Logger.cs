@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 
 namespace Tile.Core.Util
 {
@@ -12,9 +11,8 @@ namespace Tile.Core.Util
         /// <summary>
         /// File containing log
         /// </summary>
-        public string LogFile
-        {
-            get { return _logFile; }
+        public string LogFile {
+            get => _logFile;
             set {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentNullException("The log file can't be empty");
@@ -27,22 +25,17 @@ namespace Tile.Core.Util
         /// Initialize the logger
         /// </summary>
         /// <param name="file">File containing log</param>
-        public Logger(string file)
-        {
+        public Logger(string file) {
             LogFile = file;
         }
 
         /// <summary>
         /// Initialize the log file
         /// </summary>
-        public void Init()
-        {
-            try
-            {
+        public void Init() {
+            try {
                 Log("======================= " + DateTime.Now + " =======================");
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 throw new IOException($"Unable to write in the log file: {LogFile}", e);
             }
         }
@@ -53,8 +46,7 @@ namespace Tile.Core.Util
         /// Log a message only in the log file
         /// </summary>
         /// <param name="message">The message to log</param>
-        private void Log(string message)
-        {
+        private void Log(string message) {
             File.AppendAllText(LogFile, message + Environment.NewLine);
         }
 
@@ -62,8 +54,7 @@ namespace Tile.Core.Util
         /// Write a success message
         /// </summary>
         /// <param name="message">The message to write</param>
-        public void Success(string message)
-        {
+        public void Success(string message) {
             Console.WriteLine("SUCCESS\t  " + message);
             Log("SUCCESS\t  " + message);
         }
@@ -72,8 +63,7 @@ namespace Tile.Core.Util
         /// Write an information message
         /// </summary>
         /// <param name="message">The message to write</param>
-        public void Info(string message)
-        {
+        public void Info(string message) {
             Console.WriteLine("INFO\t  " + message);
             Log("INFO\t  " + message);
         }
@@ -82,8 +72,7 @@ namespace Tile.Core.Util
         /// Write a warning message
         /// </summary>
         /// <param name="message">The message to write</param>
-        public void Warning(string message)
-        {
+        public void Warning(string message) {
             Console.WriteLine("WARNING\t  " + message);
             Log("WARNING\t  " + message);
         }
@@ -92,8 +81,7 @@ namespace Tile.Core.Util
         /// Write an error message
         /// </summary>
         /// <param name="message">The message to write</param>
-        public void Error(string message)
-        {
+        public void Error(string message) {
             Console.Error.WriteLine("ERROR\t  " + message);
             Log("ERROR\t  " + message);
         }

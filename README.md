@@ -94,6 +94,7 @@ create a `settings.json` file next to `Tile.exe` with the following content:
   - [ ] Improve release process (bump version number...)
   - [ ] Merge all `.dll` into a single `.exe` file
   - [ ] Improve [README.md](README.md)
+  - [ ] Add a FAQ/troubleshoot section
   - [ ] Add a contribution guide
   - [ ] Improve the application icon
 

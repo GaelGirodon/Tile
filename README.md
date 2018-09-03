@@ -89,6 +89,7 @@ create a `settings.json` file next to `Tile.exe` with the following content:
   - [ ] Add new tiles presets
   - [ ] Implement the "Clean tiles" feature
   - [ ] Prevent replacing "original" tiles
+  - [ ] Improve error handling
 - **Release, packaging & documentation**  
   - [ ] Improve release process (bump version number...)
   - [ ] Merge all `.dll` into a single `.exe` file

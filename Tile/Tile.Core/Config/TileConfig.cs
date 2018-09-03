@@ -43,7 +43,7 @@ namespace Tile.Core.Config
                     || File.Exists(value)))
                     _iconPath = value;
                 else
-                    throw new FileNotFoundException("The icon \"" + value + "\" can't be found");
+                    throw new FileNotFoundException($"The icon '{value}' can't be found.");
             }
         }
         private string _iconPath;
@@ -118,7 +118,7 @@ namespace Tile.Core.Config
             else if (File.Exists(path))
                 content = File.ReadAllText(path);
             else
-                throw new FileNotFoundException("The tiles configuration can't be found");
+                throw new FileNotFoundException("The tiles configuration can't be found.");
             // else
             return JsonConvert.DeserializeObject<Dictionary<string, TileConfig>>(content);
         }

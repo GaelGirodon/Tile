@@ -39,7 +39,7 @@ namespace Tile.Core.Config
         /// Tile dimensions (width & height)
         /// </summary>
         [JsonIgnore]
-        public Size TileSize { get; set; } = new Size(270, 270);
+        public Size TileSize { get; set; }
 
         /// <summary>
         /// Tile icon dimensions (width & height) as an array
@@ -53,7 +53,27 @@ namespace Tile.Core.Config
         /// Tile icon dimensions (width & height)
         /// </summary>
         [JsonIgnore]
-        public Size IconSize { get; set; } = new Size(135, 135);
+        public Size IconSize { get; set; }
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Empty constructor
+        /// </summary>
+        public TileSizes() { }
+
+        /// <summary>
+        /// Initialize tile sizes (tile and icon)
+        /// </summary>
+        /// <param name="tileSize">Tile size (px)</param>
+        /// <param name="iconSize">Icon size (px)</param>
+        public TileSizes(int tileSize, int iconSize)
+        {
+            TileSize = new Size(tileSize, tileSize);
+            IconSize = new Size(iconSize, iconSize);
+        }
 
         #endregion
 

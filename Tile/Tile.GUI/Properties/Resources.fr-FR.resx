@@ -123,6 +123,12 @@
   <data name="AppName" xml:space="preserve">
     <value>Tile</value>
   </data>
+  <data name="MessageInvalidSettings" xml:space="preserve">
+    <value>Les paramètres de l'application sont invalides.</value>
+  </data>
+  <data name="MessageInvalidTilesConfig" xml:space="preserve">
+    <value>La configuration des tuiles est invalide.</value>
+  </data>
   <data name="MessageLookupFound" xml:space="preserve">
     <value>{0} application(s) trouvée(s).</value>
   </data>

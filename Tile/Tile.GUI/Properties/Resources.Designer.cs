@@ -79,6 +79,24 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The application settings are invalid..
+        /// </summary>
+        public static string MessageInvalidSettings {
+            get {
+                return ResourceManager.GetString("MessageInvalidSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The tiles configuration is invalid..
+        /// </summary>
+        public static string MessageInvalidTilesConfig {
+            get {
+                return ResourceManager.GetString("MessageInvalidTilesConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Found {0} applications to process..
         /// </summary>
         public static string MessageLookupFound {

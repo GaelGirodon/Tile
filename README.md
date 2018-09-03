@@ -21,17 +21,10 @@ and set them up in the start menu.
 
 ### Supported applications
 
-The following applications are supported without any additional setup:
+Many applications are supported without any additional setup.
 
-- 7-Zip
-- Adobe Reader
-- FileZilla
-- Inkscape
-- NetBeans
-- Notepad++
-- TeamViewer
-- VirtualBox
-- VLC Media Player
+> Open [TilesConfiguration.json](Tile/Tile.Core/Resources/TilesConfiguration.json)
+> file to get all supported applications
 
 ### Customization
 
@@ -78,7 +71,7 @@ create a `settings.json` file next to `Tile.exe` with the following content:
 ```json
 {
   "ShortcutsLocations": [
-    "C:/Absolute/Path/To/Directory/Containing/Shortcuts"
+    "C:\\Absolute\\Path\\To\\Directory\\Containing\\Shortcuts"
   ]
 }
 ```

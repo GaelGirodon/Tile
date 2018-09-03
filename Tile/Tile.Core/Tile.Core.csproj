@@ -76,6 +76,29 @@
     <EmbeddedResource Include="Resources\Icons\VirtualBox.png" />
     <EmbeddedResource Include="Resources\Icons\VLC.png" />
     <EmbeddedResource Include="Resources\Icons\AdobeReader.png" />
+    <EmbeddedResource Include="Resources\Icons\Atom.png" />
+    <EmbeddedResource Include="Resources\Icons\Discord.png" />
+    <EmbeddedResource Include="Resources\Icons\Docker.png" />
+    <EmbeddedResource Include="Resources\Icons\PgAdmin.png" />
+    <EmbeddedResource Include="Resources\Icons\Skype.png" />
+    <EmbeddedResource Include="Resources\Icons\Slack.png" />
+    <EmbeddedResource Include="Resources\Icons\SourceTree.png" />
+    <EmbeddedResource Include="Resources\Icons\Steam.png" />
+    <EmbeddedResource Include="Resources\Icons\SublimeText.png" />
+    <EmbeddedResource Include="Resources\Icons\VMWareWorkstation.png" />
+    <EmbeddedResource Include="Resources\Icons\WAMP.png" />
+    <EmbeddedResource Include="Resources\Icons\AdobeAfterEffects.png" />
+    <EmbeddedResource Include="Resources\Icons\AdobeIllustrator.png" />
+    <EmbeddedResource Include="Resources\Icons\AdobeMediaEncoder.png" />
+    <EmbeddedResource Include="Resources\Icons\AdobePhotoshop.png" />
+    <EmbeddedResource Include="Resources\Icons\AdobePremierePro.png" />
+    <EmbeddedResource Include="Resources\Icons\AffinityDesigner.png" />
+    <EmbeddedResource Include="Resources\Icons\JetBrainsCLion.png" />
+    <EmbeddedResource Include="Resources\Icons\JetBrainsIntelliJIDEA.png" />
+    <EmbeddedResource Include="Resources\Icons\JetBrainsPhpStorm.png" />
+    <EmbeddedResource Include="Resources\Icons\JetBrainsRider.png" />
+    <EmbeddedResource Include="Resources\Icons\JetBrainsRubyMine.png" />
+    <EmbeddedResource Include="Resources\Icons\JetBrainsWebStorm.png" />
     <Content Include="Resources\VisualElementsManifest.xml" />
   </ItemGroup>
   <ItemGroup>

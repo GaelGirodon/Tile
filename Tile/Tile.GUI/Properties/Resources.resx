@@ -153,11 +153,8 @@
   <data name="MessageLoadedTilesConfigFile" xml:space="preserve">
     <value>Successfully loaded the tiles configuration file.</value>
   </data>
-  <data name="MessageLookupFound" xml:space="preserve">
-    <value>Found {0} applications to process. Select the applications for which to generate custom tiles.</value>
-  </data>
   <data name="MessageLookupNoApplication" xml:space="preserve">
-    <value>No application to process, check the shortcuts locations.</value>
+    <value>Unable to found applications to customize in the start menu.</value>
   </data>
   <data name="MessageNoApplicationSelected" xml:space="preserve">
     <value>At least one application should be selected.</value>
@@ -189,6 +186,9 @@ If some applications already have custom tiles, you may need to enable the optio
   </data>
   <data name="TitleCustomizeTiles" xml:space="preserve">
     <value>Customize tiles</value>
+  </data>
+  <data name="TitleSelectApps" xml:space="preserve">
+    <value>Select applications to customize</value>
   </data>
   <data name="TitleTileGeneration" xml:space="preserve">
     <value>Tile generation</value>

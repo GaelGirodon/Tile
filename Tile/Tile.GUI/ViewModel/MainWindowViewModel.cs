@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Linq;
 using Tile.Core.Config;
 using Tile.GUI.Properties;
 
@@ -14,11 +16,6 @@ namespace Tile.GUI.ViewModel
         #region Data Binding
 
         /// <summary>
-        /// Window title
-        /// </summary>
-        public string Title => $"{Resources.AppName} | {Resources.AppDescription}";
-
-        /// <summary>
         /// Overwrite existing tiles.
         /// This setting is exposed from settings for data-binding.
         /// </summary>
@@ -28,17 +25,54 @@ namespace Tile.GUI.ViewModel
         }
 
         /// <summary>
-        /// Applications to process.
-        /// This setting is exposed from settings for data-binding.
+        /// Select or unselect all applications at once.
         /// </summary>
-        public ObservableCollection<CheckedItem> SelectedApplications {
-            get => _selectedApplications;
+        public bool SelectAllApps {
+            get => _selectAllApps;
             set {
-                _selectedApplications = value;
-                OnPropertyChanged("SelectedApplications");
+                _selectAllApps = value;
+                OnPropertyChanged("SelectAllApps");
+                _selectedApps?.ToList().ForEach(a => a.IsChecked = value);
+                OnPropertyChanged("SelectedApps");
             }
         }
-        public ObservableCollection<CheckedItem> _selectedApplications;
+        private bool _selectAllApps = true;
+
+        /// <summary>
+        /// Applications to process.
+        /// This property is exposed from settings for data-binding.
+        /// </summary>
+        public ObservableCollection<CheckedItem> SelectedApps {
+            get => _selectedApps;
+            set {
+                _selectedApps = value;
+                OnPropertyChanged("SelectedApps");
+                UpdateSelectAllAppsProperty();
+                _selectedApps?.ToList().ForEach(app
+                    => app.PropertyChanged += (object sender, PropertyChangedEventArgs e)
+                    => UpdateSelectAllAppsProperty());
+            }
+        }
+        private ObservableCollection<CheckedItem> _selectedApps;
+
+        /// <summary>
+        /// Update the SelectAllApps property based on SelectedApps property value.
+        /// If all the apps are checked/unchecked, the value of the SelectAllApps property
+        /// must be updated to true/false.
+        /// </summary>
+        private void UpdateSelectAllAppsProperty() {
+            if (_selectedApps == null || _selectedApps.Count == 0) {
+                _selectAllApps = false;
+                OnPropertyChanged("SelectAllApps");
+                return;
+            }
+            // else
+            var isCheckedCount = _selectedApps.Count(a => a.IsChecked);
+            if (isCheckedCount == _selectedApps.Count || isCheckedCount == 0) {
+                _selectAllApps = _selectedApps.FirstOrDefault()?.IsChecked ?? false;
+                OnPropertyChanged("SelectAllApps");
+            }
+        }
 
         /// <summary>
         /// Indicate whether the tile generation is ready or not.

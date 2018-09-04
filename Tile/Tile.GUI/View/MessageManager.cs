@@ -43,8 +43,6 @@ namespace Tile.GUI.View
 
         public void ApplicationsFound(int appsCount) {
             Logger?.Success($"Found {appsCount} applications to process");
-            MessageBox.Show(string.Format(Properties.Resources.MessageLookupFound, appsCount),
-                string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public void NoApplicationSelected() {

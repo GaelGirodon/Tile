@@ -169,16 +169,7 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Found {0} applications to process. Select the applications for which to generate custom tiles..
-        /// </summary>
-        public static string MessageLookupFound {
-            get {
-                return ResourceManager.GetString("MessageLookupFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No application to process, check the shortcuts locations..
+        ///   Looks up a localized string similar to Unable to found applications to customize in the start menu..
         /// </summary>
         public static string MessageLookupNoApplication {
             get {
@@ -274,6 +265,15 @@ namespace Tile.GUI.Properties {
         public static string TitleCustomizeTiles {
             get {
                 return ResourceManager.GetString("TitleCustomizeTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select applications to customize.
+        /// </summary>
+        public static string TitleSelectApps {
+            get {
+                return ResourceManager.GetString("TitleSelectApps", resourceCulture);
             }
         }
         

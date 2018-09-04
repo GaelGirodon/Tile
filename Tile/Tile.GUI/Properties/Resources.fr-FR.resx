@@ -153,11 +153,8 @@
   <data name="MessageLoadedTilesConfigFile" xml:space="preserve">
     <value>La configuration de la génération des tuiles a bien été chargée.</value>
   </data>
-  <data name="MessageLookupFound" xml:space="preserve">
-    <value>{0} application(s) trouvée(s). Sélectionnez les applications pour lesquelles générer des tuiles personnalisées.</value>
-  </data>
   <data name="MessageLookupNoApplication" xml:space="preserve">
-    <value>Aucune application n'a pu être trouvée avec le paramétrage actuel.</value>
+    <value>Aucune application à personnaliser n'a pu être trouvée dans le menu démarrer.</value>
   </data>
   <data name="MessageNoApplicationSelected" xml:space="preserve">
     <value>Au moins une application doit être sélectionnée.</value>
@@ -189,6 +186,9 @@ Si des tuiles personnalisées existent déjà et que vous souhaitez les remplace
   </data>
   <data name="TitleCustomizeTiles" xml:space="preserve">
     <value>Personnaliser l'apparence des tuiles</value>
+  </data>
+  <data name="TitleSelectApps" xml:space="preserve">
+    <value>Sélectionner les applications à personnaliser</value>
   </data>
   <data name="TitleTileGeneration" xml:space="preserve">
     <value>Génération des tuiles</value>

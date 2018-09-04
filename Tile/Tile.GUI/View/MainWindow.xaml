@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Tile.GUI.View"
         xmlns:p="clr-namespace:Tile.GUI.Properties"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="480" Width="480"
-        MinHeight="640" MinWidth="480" Icon="Tile.ico"
+        Title="{x:Static p:Resources.AppName}" Height="620" Width="480"
+        MinHeight="620" MinWidth="480" Icon="Tile.ico"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <DockPanel>
@@ -86,22 +86,22 @@
             </StackPanel>
             <!-- Body -->
             <DockPanel Margin="32,16">
-                <!-- Applications lookup -->
-                <Button DockPanel.Dock="Top" Margin="0,8" Height="32" FontSize="14" Click="LookupApplications"
-                        Background="#DDDDDD" BorderBrush="#AAAAAA">
-                    <Button.Content>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#128269;" Margin="0,0,8,0"></TextBlock>
-                            <TextBlock Text="{x:Static p:Resources.ButtonSearchApplications}"></TextBlock>
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
+                <!-- Global selector -->
+                <Border DockPanel.Dock="Top" BorderBrush="#FFABADB3" BorderThickness="1,1,1,0">
+                    <StackPanel Orientation="Horizontal" Background="#EAEAEA">
+                        <CheckBox Margin="6,8"
+                                  IsChecked="{Binding SelectAllApps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Margin="0,7" FontWeight="DemiBold"
+                                   Text="{x:Static p:Resources.TitleSelectApps}" />
+                    </StackPanel>
+                </Border>
                 <!-- Applications for which to generate tiles -->
-                <ListBox ItemsSource="{Binding SelectedApplications, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBox ItemsSource="{Binding SelectedApps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                            <CheckBox Content="{Binding Name}"
+                                      IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

@@ -67,6 +67,14 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "Atlassian Source Tree": {
+        "ShortcutRegex": "SourceTree",
+        "IconPath": "Tile.Core.Resources.Icons.SourceTree.png",
+        "BackgroundColor": "#182870",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "Atom": {
         "ShortcutRegex": "Atom",
         "IconPath": "Tile.Core.Resources.Icons.Atom.png",
@@ -195,14 +203,6 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
-    "Atlassian Source Tree": {
-        "ShortcutRegex": "SourceTree",
-        "IconPath": "Tile.Core.Resources.Icons.SourceTree.png",
-        "BackgroundColor": "#182870",
-        "ForegroundText": "Light",
-        "ShowNameOnMediumTile": true,
-        "GenerationMode": "Adjusted"
-    },
     "Steam": {
         "ShortcutRegex": "Steam",
         "IconPath": "Tile.Core.Resources.Icons.Steam.png",
@@ -239,6 +239,7 @@
         "ShortcutRegex": "^VLC media player$",
         "IconPath": "Tile.Core.Resources.Icons.VLC.png",
         "BackgroundColor": "#FF7900",
+        "ForegroundText": "Light",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },

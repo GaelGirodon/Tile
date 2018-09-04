@@ -68,6 +68,9 @@ namespace Tile.GUI.View
             // Initialize the view model
             _viewModel = new MainWindowViewModel(_settings);
             DataContext = _viewModel;
+
+            // Lookup applications
+            LookupApplications();
         }
 
         #region Process steps
@@ -106,20 +109,18 @@ namespace Tile.GUI.View
         /// <summary>
         /// Lookup applications shortcuts based on settings.
         /// </summary>
-        /// <param name="sender">Event sender</param>
-        /// <param name="e">Event arguments</param>
-        private void LookupApplications(object sender, RoutedEventArgs e) {
+        private void LookupApplications() {
             // Lookup applications (shortcuts & targets)
             var apps = _generator.LookupApps(_tilesConfig);
             if (apps.Count == 0) { // No application found
                 _msg.NoApplicationFound();
                 _apps = null;
-                _viewModel.SelectedApplications = null;
+                _viewModel.SelectedApps = null;
                 _viewModel.IsReady = false;
             } else { // Ready to select applications and generate tiles
                 _msg.ApplicationsFound(apps.Count);
                 _apps = apps;
-                _viewModel.SelectedApplications = new ObservableCollection<CheckedItem>(
+                _viewModel.SelectedApps = new ObservableCollection<CheckedItem>(
                     _apps.Select(a => new CheckedItem { Name = a.Key, IsChecked = true }));
                 _viewModel.IsReady = true;
             }
@@ -131,7 +132,7 @@ namespace Tile.GUI.View
         /// <param name="sender">Event sender</param>
         /// <param name="e">Event arguments</param>
         private void GenerateTiles(object sender, RoutedEventArgs e) {
-            var selectedApps = _viewModel.SelectedApplications.Where(a => a.IsChecked).Select(a => a.Name);
+            var selectedApps = _viewModel.SelectedApps.Where(a => a.IsChecked).Select(a => a.Name);
             if (!selectedApps.Any()) {
                 _msg.NoApplicationSelected();
                 return;
@@ -151,7 +152,7 @@ namespace Tile.GUI.View
         /// <param name="sender">Event sender</param>
         /// <param name="e">Event arguments</param>
         private void ResetTiles(object sender, RoutedEventArgs e) {
-            var selectedApps = _viewModel.SelectedApplications.Where(a => a.IsChecked).Select(a => a.Name);
+            var selectedApps = _viewModel.SelectedApps.Where(a => a.IsChecked).Select(a => a.Name);
             if (!selectedApps.Any()) {
                 _msg.NoApplicationSelected();
                 return;
@@ -197,9 +198,10 @@ namespace Tile.GUI.View
             try {
                 _tilesConfig = TileConfig.Load(_settings.TilesConfigPath);
                 _apps = null;
-                _viewModel.SelectedApplications = null;
+                _viewModel.SelectedApps = null;
                 _viewModel.IsReady = false;
                 _msg.LoadedTilesConfigFile();
+                LookupApplications();
             } catch (Exception ex) {
                 _msg.InvalidTilesConfig(ex);
             }

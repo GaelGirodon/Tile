@@ -95,7 +95,7 @@ namespace Tile.Core.Config
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs"),
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu), "Programs")
             };
-            Sizes = new TileSetSizes() { Medium = new TileSizes(270, 135), Small = new TileSizes(126, 78) };
+            Sizes = new TileSetSizes() { Medium = new TileSizes(270, 120), Small = new TileSizes(126, 78) };
             TilesConfigPath = null; // Load embedded configuration file by default
             Overwrite = false;
         }

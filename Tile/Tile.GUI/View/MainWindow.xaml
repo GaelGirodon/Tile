@@ -38,12 +38,11 @@
                     </Grid.ColumnDefinitions>
                     <CheckBox Content="{x:Static p:Resources.SettingsOverwrite}" Margin="0,8" Grid.ColumnSpan="2"
                               IsChecked="{Binding Overwrite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <Button Grid.Column="1" Background="#EE4444" Foreground="#FFFFFF" BorderBrush="#AA2222"
-                            Visibility="Collapsed">
+                    <Button Grid.Column="1" Background="#EE4444" Foreground="#FFFFFF" BorderBrush="#AA2222" Click="ResetTiles">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="❌" Margin="-4,0,4,0"></TextBlock>
-                                <TextBlock Text="{x:Static p:Resources.TileGenerationClearTiles}"></TextBlock>
+                                <TextBlock Text="{x:Static p:Resources.TileGenerationResetTiles}"></TextBlock>
                             </StackPanel>
                         </Button.Content>
                     </Button>

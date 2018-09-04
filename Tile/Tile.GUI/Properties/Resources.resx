@@ -136,13 +136,19 @@
     <value>No application to process, check the shortcuts locations.</value>
   </data>
   <data name="MessageNoApplicationSelected" xml:space="preserve">
-    <value>At least one application should be selected to generate custom tiles.</value>
+    <value>At least one application should be selected.</value>
   </data>
   <data name="MessageNoTiles" xml:space="preserve">
     <value>No tiles were generated, check settings or logs for additional information.</value>
   </data>
+  <data name="MessageNoTilesToReset" xml:space="preserve">
+    <value>None of the applications had custom tiles to reset.</value>
+  </data>
   <data name="MessageProcessedApplications" xml:space="preserve">
     <value>Processed {0}/{1} application(s) ({2}). Pin the applications on the start menu and the custom tiles will be displayed.</value>
+  </data>
+  <data name="MessageResetTiles" xml:space="preserve">
+    <value>Processed {0}/{1} application(s) ({2}). Tiles have been successfully reset.</value>
   </data>
   <data name="SettingsOverwrite" xml:space="preserve">
     <value>Overwrite existing tiles</value>
@@ -153,8 +159,8 @@
   <data name="SettingsTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="TileGenerationClearTiles" xml:space="preserve">
-    <value>Clear existing tiles</value>
+  <data name="TileGenerationResetTiles" xml:space="preserve">
+    <value>Reset custom tiles</value>
   </data>
   <data name="TileGenerationRunButton" xml:space="preserve">
     <value>Generate tiles</value>

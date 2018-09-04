@@ -65,6 +65,19 @@ namespace Tile.GUI.View
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 
+        public void TilesReset(int processedCount, int total, List<string> processedApps) {
+            string appsStr = string.Join(", ", processedApps);
+            Logger?.Success($"Processed {processedCount}/{total} application(s) ({appsStr})");
+            MessageBox.Show(string.Format(Properties.Resources.MessageResetTiles, processedCount, total, appsStr),
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public void NoTilesReset() {
+            Logger?.Info("No tiles were reset");
+            MessageBox.Show(Properties.Resources.MessageNoTilesToReset,
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
         #endregion
 
         #region Util

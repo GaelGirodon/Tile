@@ -115,7 +115,7 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At least one application should be selected to generate custom tiles..
+        ///   Looks up a localized string similar to At least one application should be selected..
         /// </summary>
         public static string MessageNoApplicationSelected {
             get {
@@ -133,11 +133,29 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to None of the applications had custom tiles to reset..
+        /// </summary>
+        public static string MessageNoTilesToReset {
+            get {
+                return ResourceManager.GetString("MessageNoTilesToReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Processed {0}/{1} application(s) ({2}). Pin the applications on the start menu and the custom tiles will be displayed..
         /// </summary>
         public static string MessageProcessedApplications {
             get {
                 return ResourceManager.GetString("MessageProcessedApplications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processed {0}/{1} application(s) ({2}). Tiles have been successfully reset..
+        /// </summary>
+        public static string MessageResetTiles {
+            get {
+                return ResourceManager.GetString("MessageResetTiles", resourceCulture);
             }
         }
         
@@ -169,11 +187,11 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Clear existing tiles.
+        ///   Looks up a localized string similar to Reset custom tiles.
         /// </summary>
-        public static string TileGenerationClearTiles {
+        public static string TileGenerationResetTiles {
             get {
-                return ResourceManager.GetString("TileGenerationClearTiles", resourceCulture);
+                return ResourceManager.GetString("TileGenerationResetTiles", resourceCulture);
             }
         }
         

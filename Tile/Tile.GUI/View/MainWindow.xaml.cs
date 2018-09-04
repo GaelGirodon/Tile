@@ -144,6 +144,26 @@ namespace Tile.GUI.View
                 _msg.NoTilesGenerated();
         }
 
+        /// <summary>
+        /// Reset tiles to their initial state.
+        /// </summary>
+        /// <param name="sender">Event sender</param>
+        /// <param name="e">Event arguments</param>
+        public void ResetTiles(object sender, RoutedEventArgs e) {
+            var selectedApps = _viewModel.SelectedApplications.Where(a => a.IsChecked).Select(a => a.Name);
+            if (!selectedApps.Any()) {
+                _msg.NoApplicationSelected();
+                return;
+            } // else: ready to reset tiles
+            var apps = _apps.Keep(selectedApps);
+            // Reset tiles
+            var processedApps = _generator.ResetTiles(apps);
+            if (processedApps.Count > 0)
+                _msg.TilesReset(processedApps.Count, apps.Count, processedApps);
+            else
+                _msg.NoTilesReset();
+        }
+
         #endregion
     }
 }

@@ -7,7 +7,8 @@
         xmlns:p="clr-namespace:Tile.GUI.Properties"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="480" Width="480"
-        MinHeight="540" MinWidth="480" Icon="Tile.ico">
+        MinHeight="640" MinWidth="480" Icon="Tile.ico"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <DockPanel>
             <!-- Header -->
@@ -18,45 +19,80 @@
                            Foreground="#FFFFFF" FontSize="14" TextAlignment="Center" />
             </StackPanel>
             <!-- Footer -->
-            <StackPanel DockPanel.Dock="Bottom" Background="#E5E5E5" IsEnabled="{Binding IsReady}">
+            <StackPanel DockPanel.Dock="Bottom" Background="#EAEAEA">
                 <!-- Generate tile -->
                 <Button Margin="32,16,32,8" Height="32" FontSize="14" Click="GenerateTiles"
-                        Background="#00AAEE" Foreground="#FFFFFF" BorderBrush="#0088BB">
+                        Background="#00AAEE" Foreground="#FFFFFF" BorderBrush="#0088BB"
+                        IsEnabled="{Binding IsReady}">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="▶" Margin="0,0,8,0"></TextBlock>
-                            <TextBlock Text="{x:Static p:Resources.TileGenerationRunButton}"
+                            <TextBlock Text="{x:Static p:Resources.ButtonGenerateTiles}"
                                        FontWeight="DemiBold"></TextBlock>
                         </StackPanel>
                     </Button.Content>
                 </Button>
-                <!-- Overwrite -->
-                <Grid Margin="32,0,32,24">
+                <Grid Margin="32,0,32,0" IsEnabled="{Binding IsReady}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
+                    <!-- Overwrite -->
                     <CheckBox Content="{x:Static p:Resources.SettingsOverwrite}" Margin="0,8" Grid.ColumnSpan="2"
                               IsChecked="{Binding Overwrite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <!-- Reset tiles -->
                     <Button Grid.Column="1" Background="#EE4444" Foreground="#FFFFFF" BorderBrush="#AA2222" Click="ResetTiles">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="❌" Margin="-4,0,4,0"></TextBlock>
-                                <TextBlock Text="{x:Static p:Resources.TileGenerationResetTiles}"></TextBlock>
+                                <TextBlock Text="{x:Static p:Resources.ButtonResetTiles}"></TextBlock>
                             </StackPanel>
                         </Button.Content>
                     </Button>
                 </Grid>
+                <Rectangle Fill="#AAAAAA" Height="1" Margin="32,12" />
+                <!-- Customization -->
+                <Expander Margin="32,0,32,24">
+                    <Expander.Header>
+                        <TextBlock Text="{x:Static p:Resources.TitleCustomizeTiles}" FontWeight="DemiBold" Margin="4,0" />
+                    </Expander.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <!-- Expose the configuration file -->
+                        <Button Margin="0,8" Height="28" Background="#DDDDDD" BorderBrush="#AAAAAA"
+                                Click="ExposeTilesConfigurationFile">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="&#128203;" Margin="0,0,4,0" />
+                                    <TextBlock Text="{x:Static p:Resources.ButtonCustomExposeConfigFile}" />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <!-- Reload the configuration file -->
+                        <Button Height="28" Background="#DDDDDD" BorderBrush="#AAAAAA" Grid.Row="1"
+                                Click="ReloadTilesConfigurationFile">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="&#8634;" Margin="0,-4,4,0" FontSize="16" />
+                                    <TextBlock Text="{x:Static p:Resources.ButtonCustomReloadConfigFile}" />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+                </Expander>
             </StackPanel>
             <!-- Body -->
             <DockPanel Margin="32,16">
                 <!-- Applications lookup -->
                 <Button DockPanel.Dock="Top" Margin="0,8" Height="32" FontSize="14" Click="LookupApplications"
-                        Background="#DDDDDD" Foreground="#000000" BorderBrush="#AAAAAA">
+                        Background="#DDDDDD" BorderBrush="#AAAAAA">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="&#128269;" Margin="0,0,8,0"></TextBlock>
-                            <TextBlock Text="{x:Static p:Resources.TileGenerationSearchApplicationsButton}"></TextBlock>
+                            <TextBlock Text="{x:Static p:Resources.ButtonSearchApplications}"></TextBlock>
                         </StackPanel>
                     </Button.Content>
                 </Button>

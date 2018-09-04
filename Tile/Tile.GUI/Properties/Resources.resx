@@ -123,11 +123,35 @@
   <data name="AppName" xml:space="preserve">
     <value>Tile</value>
   </data>
+  <data name="ButtonCustomExposeConfigFile" xml:space="preserve">
+    <value>Expose the configuration file</value>
+  </data>
+  <data name="ButtonCustomReloadConfigFile" xml:space="preserve">
+    <value>Reload the configuration file</value>
+  </data>
+  <data name="ButtonGenerateTiles" xml:space="preserve">
+    <value>Generate tiles</value>
+  </data>
+  <data name="ButtonResetTiles" xml:space="preserve">
+    <value>Reset tiles</value>
+  </data>
+  <data name="ButtonSearchApplications" xml:space="preserve">
+    <value>Lookup applications</value>
+  </data>
+  <data name="MessageExposedTilesConfigFile" xml:space="preserve">
+    <value>The tiles configuration file was successfully exported to: {0}. You can now open this file, customize it and reload it to generate tiles with a custom look.</value>
+  </data>
+  <data name="MessageFailedExposingTilesConfigFile" xml:space="preserve">
+    <value>Failed exporting the tiles configuration file. Check that the file isn't already opened by another program.</value>
+  </data>
   <data name="MessageInvalidSettings" xml:space="preserve">
     <value>The application settings are invalid.</value>
   </data>
   <data name="MessageInvalidTilesConfig" xml:space="preserve">
     <value>The tiles configuration is invalid.</value>
+  </data>
+  <data name="MessageLoadedTilesConfigFile" xml:space="preserve">
+    <value>Successfully loaded the tiles configuration file.</value>
   </data>
   <data name="MessageLookupFound" xml:space="preserve">
     <value>Found {0} applications to process. Select the applications for which to generate custom tiles.</value>
@@ -139,10 +163,14 @@
     <value>At least one application should be selected.</value>
   </data>
   <data name="MessageNoTiles" xml:space="preserve">
-    <value>No tiles were generated, check settings or logs for additional information.</value>
+    <value>No tiles were generated, check settings or logs for additional information.
+If some applications already have custom tiles, you may need to enable the option "Overwrite existing tiles" to replace them.</value>
   </data>
   <data name="MessageNoTilesToReset" xml:space="preserve">
     <value>None of the applications had custom tiles to reset.</value>
+  </data>
+  <data name="MessageOverwriteTilesConfigFile" xml:space="preserve">
+    <value>The tiles configuration file already exists. Do you want to overwrite it?</value>
   </data>
   <data name="MessageProcessedApplications" xml:space="preserve">
     <value>Processed {0}/{1} application(s) ({2}). Pin the applications on the start menu and the custom tiles will be displayed.</value>
@@ -159,16 +187,10 @@
   <data name="SettingsTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="TileGenerationResetTiles" xml:space="preserve">
-    <value>Reset custom tiles</value>
+  <data name="TitleCustomizeTiles" xml:space="preserve">
+    <value>Customize tiles</value>
   </data>
-  <data name="TileGenerationRunButton" xml:space="preserve">
-    <value>Generate tiles</value>
-  </data>
-  <data name="TileGenerationSearchApplicationsButton" xml:space="preserve">
-    <value>Lookup applications</value>
-  </data>
-  <data name="TileGenerationTitle" xml:space="preserve">
+  <data name="TitleTileGeneration" xml:space="preserve">
     <value>Tile generation</value>
   </data>
 </root>

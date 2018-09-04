@@ -3,7 +3,7 @@
     /// <summary>
     /// Tile text color (White or Black)
     /// </summary>
-    public enum TileForegroundColor
+    public enum TileForegroundText
     {
         /// <summary>
         /// White

@@ -51,7 +51,7 @@
     <Compile Include="Engine\AppShortcut.cs" />
     <Compile Include="Engine\AssetsConstants.cs" />
     <Compile Include="Config\TileSetSizes.cs" />
-    <Compile Include="Config\TileForegroundColor.cs" />
+    <Compile Include="Config\TileForegroundText.cs" />
     <Compile Include="Config\TileGenerationMode.cs" />
     <Compile Include="Engine\TileGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

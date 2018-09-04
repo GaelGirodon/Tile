@@ -177,7 +177,7 @@ namespace Tile.Core.Engine
 
             // Generate the XML file (background color, logo paths, foreground color, and XML filename)
             File.WriteAllText(xml, GenerateXMLVisualElements(
-                tileConfig.BackgroundColorAsObj, tileConfig.ForegroundColorAsEnum, tileConfig.ShowNameOnMediumTile));
+                tileConfig.BackgroundColorAsObj, tileConfig.ForegroundTextAsEnum, tileConfig.ShowNameOnMediumTile));
 
             // Save tiles in assets directory
             mediumTile.Save(mediumTilePath, ImageFormat.Png);
@@ -234,7 +234,7 @@ namespace Tile.Core.Engine
         /// <param name="showNameOnMediumTile">Show the name on the medium tile</param>
         /// <returns>XML file content</returns>
         public static string GenerateXMLVisualElements(Color backgroundColor,
-            TileForegroundColor foregroundColor, bool showNameOnMediumTile) {
+            TileForegroundText foregroundColor, bool showNameOnMediumTile) {
             return Resources.VisualElementsManifest
                 .Replace("{BackgroundColor}", ColorTranslator.ToHtml(backgroundColor))
                 .Replace("{ShowNameOnSquare150x150Logo}", showNameOnMediumTile ? "on" : "off")

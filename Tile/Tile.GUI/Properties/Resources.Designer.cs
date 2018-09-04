@@ -79,6 +79,69 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expose the configuration file.
+        /// </summary>
+        public static string ButtonCustomExposeConfigFile {
+            get {
+                return ResourceManager.GetString("ButtonCustomExposeConfigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reload the configuration file.
+        /// </summary>
+        public static string ButtonCustomReloadConfigFile {
+            get {
+                return ResourceManager.GetString("ButtonCustomReloadConfigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate tiles.
+        /// </summary>
+        public static string ButtonGenerateTiles {
+            get {
+                return ResourceManager.GetString("ButtonGenerateTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset tiles.
+        /// </summary>
+        public static string ButtonResetTiles {
+            get {
+                return ResourceManager.GetString("ButtonResetTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lookup applications.
+        /// </summary>
+        public static string ButtonSearchApplications {
+            get {
+                return ResourceManager.GetString("ButtonSearchApplications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The tiles configuration file was successfully exported to: {0}. You can now open this file, customize it and reload it to generate tiles with a custom look..
+        /// </summary>
+        public static string MessageExposedTilesConfigFile {
+            get {
+                return ResourceManager.GetString("MessageExposedTilesConfigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed exporting the tiles configuration file. Check that the file isn&apos;t already opened by another program..
+        /// </summary>
+        public static string MessageFailedExposingTilesConfigFile {
+            get {
+                return ResourceManager.GetString("MessageFailedExposingTilesConfigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The application settings are invalid..
         /// </summary>
         public static string MessageInvalidSettings {
@@ -93,6 +156,15 @@ namespace Tile.GUI.Properties {
         public static string MessageInvalidTilesConfig {
             get {
                 return ResourceManager.GetString("MessageInvalidTilesConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully loaded the tiles configuration file..
+        /// </summary>
+        public static string MessageLoadedTilesConfigFile {
+            get {
+                return ResourceManager.GetString("MessageLoadedTilesConfigFile", resourceCulture);
             }
         }
         
@@ -124,7 +196,8 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No tiles were generated, check settings or logs for additional information..
+        ///   Looks up a localized string similar to No tiles were generated, check settings or logs for additional information.
+        ///If some applications already have custom tiles, you may need to enable the option &quot;Overwrite existing tiles&quot; to replace them..
         /// </summary>
         public static string MessageNoTiles {
             get {
@@ -138,6 +211,15 @@ namespace Tile.GUI.Properties {
         public static string MessageNoTilesToReset {
             get {
                 return ResourceManager.GetString("MessageNoTilesToReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The tiles configuration file already exists. Do you want to overwrite it?.
+        /// </summary>
+        public static string MessageOverwriteTilesConfigFile {
+            get {
+                return ResourceManager.GetString("MessageOverwriteTilesConfigFile", resourceCulture);
             }
         }
         
@@ -187,38 +269,20 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reset custom tiles.
+        ///   Looks up a localized string similar to Customize tiles.
         /// </summary>
-        public static string TileGenerationResetTiles {
+        public static string TitleCustomizeTiles {
             get {
-                return ResourceManager.GetString("TileGenerationResetTiles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Generate tiles.
-        /// </summary>
-        public static string TileGenerationRunButton {
-            get {
-                return ResourceManager.GetString("TileGenerationRunButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lookup applications.
-        /// </summary>
-        public static string TileGenerationSearchApplicationsButton {
-            get {
-                return ResourceManager.GetString("TileGenerationSearchApplicationsButton", resourceCulture);
+                return ResourceManager.GetString("TitleCustomizeTiles", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Tile generation.
         /// </summary>
-        public static string TileGenerationTitle {
+        public static string TitleTileGeneration {
             get {
-                return ResourceManager.GetString("TileGenerationTitle", resourceCulture);
+                return ResourceManager.GetString("TitleTileGeneration", resourceCulture);
             }
         }
     }

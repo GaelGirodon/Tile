@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using Tile.Core.Config;
@@ -75,7 +76,7 @@ namespace Tile.GUI.View
         /// Initialize the generation context: settings, logger,
         /// tiles configuration and tile generator.
         /// </summary>
-        public void Init() {
+        private void Init() {
             // Load settings
             try {
                 _settings = Settings.LoadOrDefault(Settings.SETTINGS_PATH);
@@ -129,7 +130,7 @@ namespace Tile.GUI.View
         /// </summary>
         /// <param name="sender">Event sender</param>
         /// <param name="e">Event arguments</param>
-        public void GenerateTiles(object sender, RoutedEventArgs e) {
+        private void GenerateTiles(object sender, RoutedEventArgs e) {
             var selectedApps = _viewModel.SelectedApplications.Where(a => a.IsChecked).Select(a => a.Name);
             if (!selectedApps.Any()) {
                 _msg.NoApplicationSelected();
@@ -149,7 +150,7 @@ namespace Tile.GUI.View
         /// </summary>
         /// <param name="sender">Event sender</param>
         /// <param name="e">Event arguments</param>
-        public void ResetTiles(object sender, RoutedEventArgs e) {
+        private void ResetTiles(object sender, RoutedEventArgs e) {
             var selectedApps = _viewModel.SelectedApplications.Where(a => a.IsChecked).Select(a => a.Name);
             if (!selectedApps.Any()) {
                 _msg.NoApplicationSelected();
@@ -165,5 +166,46 @@ namespace Tile.GUI.View
         }
 
         #endregion
+
+        #region Tile customization
+
+        /// <summary>
+        /// Copy the embedded tiles configuration file next to the application executable
+        /// to allow the user to customize tile generation.
+        /// </summary>
+        /// <param name="sender">Event sender</param>
+        /// <param name="e">Event arguments</param>
+        private void ExposeTilesConfigurationFile(object sender, RoutedEventArgs e) {
+            string path = _settings.TilesConfigPath;
+            if (File.Exists(path) && !_msg.OverwriteTilesConfigFile()) {
+                return;
+            } // else
+            try {
+                TileConfig.ExportEmbeddedConfiguration(path);
+                _msg.ExposedTilesConfigFile(path);
+            } catch (Exception ex) {
+                _msg.FailedExposingTilesConfigFile(ex);
+            }
+        }
+
+        /// <summary>
+        /// Reload the tiles configuration file.
+        /// </summary>
+        /// <param name="sender">Event sender</param>
+        /// <param name="e">Event arguments</param>
+        private void ReloadTilesConfigurationFile(object sender, RoutedEventArgs e) {
+            try {
+                _tilesConfig = TileConfig.Load(_settings.TilesConfigPath);
+                _apps = null;
+                _viewModel.SelectedApplications = null;
+                _viewModel.IsReady = false;
+                _msg.LoadedTilesConfigFile();
+            } catch (Exception ex) {
+                _msg.InvalidTilesConfig(ex);
+            }
+        }
+
+        #endregion
+
     }
 }

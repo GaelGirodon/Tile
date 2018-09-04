@@ -78,6 +78,30 @@ namespace Tile.GUI.View
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 
+        public void LoadedTilesConfigFile() {
+            Logger?.Info("Successfully loaded the tiles configuration file.");
+            MessageBox.Show(Properties.Resources.MessageLoadedTilesConfigFile,
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public bool OverwriteTilesConfigFile() {
+            return MessageBox.Show(Properties.Resources.MessageOverwriteTilesConfigFile,
+                string.Empty, MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes;
+        }
+
+        public void ExposedTilesConfigFile(string path) {
+            Logger?.Info("Successfully exposed the tiles configuration file.");
+            string msg = string.Format(Properties.Resources.MessageExposedTilesConfigFile, path);
+            MessageBox.Show(msg, string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public void FailedExposingTilesConfigFile(Exception ex) {
+            string error = string.Join(Environment.NewLine, CollectExceptionMessages(ex));
+            Logger?.Warning("Failed exposing the tiles configuration file: " + error);
+            MessageBox.Show(Properties.Resources.MessageFailedExposingTilesConfigFile + Environment.NewLine + error,
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
         #endregion
 
         #region Util

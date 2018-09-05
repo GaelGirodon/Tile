@@ -16,7 +16,7 @@ using Windows built-in Tile customization mechanism
 When you will pin these applications on the start menu, they will
 automatically have a custom tile.
 
-## Quickstart
+## QuickStart
 
 - Download the [latest release](https://github.com/GaelGirodon/Tile/releases)
 - Extract the archive
@@ -93,13 +93,12 @@ create a `settings.json` file next to `Tile.exe` with the following content:
   - [ ] Add new tiles presets
   - [ ] Improve error handling
 - **Release, packaging & documentation**  
-  - [ ] Improve release process (bump version number...)
+  - [ ] Improve the release process (bump version number...)
   - [ ] Merge all `.dll` into a single `.exe` file
   - [ ] Improve [README.md](README.md)
     - [ ] Add a _FAQ/troubleshoot_ section
     - [ ] Add a _How it works_ section
     - [ ] Add a contribution guide
-  - [ ] Improve the application icon
 
 ## License
 

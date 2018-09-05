@@ -83,6 +83,22 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "Battle.net": {
+        "ShortcutRegex": "Battle\\.net",
+        "IconPath": "Tile.Core.Resources.Icons.BattleNet.png",
+        "BackgroundColor": "#008DD4",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "CCleaner": {
+        "ShortcutRegex": "CCleaner",
+        "IconPath": "Tile.Core.Resources.Icons.CCleaner.png",
+        "BackgroundColor": "#D72C15",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "Discord": {
         "ShortcutRegex": "Discord",
         "IconPath": "Tile.Core.Resources.Icons.Discord.png",
@@ -99,10 +115,42 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "Eclipse": {
+        "ShortcutRegex": "Eclipse",
+        "IconPath": "Tile.Core.Resources.Icons.Eclipse.png",
+        "BackgroundColor": "#2C2256",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Epic Games": {
+        "ShortcutRegex": "Epic Games",
+        "IconPath": "Tile.Core.Resources.Icons.EpicGames.png",
+        "BackgroundColor": "#000000",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "FileZilla": {
         "ShortcutRegex": "FileZilla",
         "IconPath": "Tile.Core.Resources.Icons.FileZilla.png",
         "BackgroundColor": "#CC0000",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "GIMP": {
+        "ShortcutRegex": "GIMP",
+        "IconPath": "Tile.Core.Resources.Icons.GIMP.png",
+        "BackgroundColor": "#3B3627",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "GitHub Desktop": {
+        "ShortcutRegex": "GitHub Desktop",
+        "IconPath": "Tile.Core.Resources.Icons.GitHubDesktop.png",
+        "BackgroundColor": "#802890",
         "ForegroundText": "Light",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
@@ -219,6 +267,14 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "TeamSpeak": {
+        "ShortcutRegex": "TeamSpeak",
+        "IconPath": "Tile.Core.Resources.Icons.TeamSpeak.png",
+        "BackgroundColor": "#2880C3",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "TeamViewer": {
         "ShortcutRegex": "TeamViewer [0-9]{2}",
         "IconPath": "Tile.Core.Resources.Icons.TeamViewer.png",
@@ -227,10 +283,34 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "Unity": {
+        "ShortcutRegex": "^Unity$",
+        "IconPath": "Tile.Core.Resources.Icons.Unity.png",
+        "BackgroundColor": "#0E0D22",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Uplay": {
+        "ShortcutRegex": "Uplay",
+        "IconPath": "Tile.Core.Resources.Icons.Uplay.png",
+        "BackgroundColor": "#0070FF",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "VirtualBox": {
-        "ShortcutRegex": "^Oracle VM VirtualBox",
+        "ShortcutRegex": "VirtualBox",
         "IconPath": "Tile.Core.Resources.Icons.VirtualBox.png",
         "BackgroundColor": "#123456",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "Visual Paradigm": {
+        "ShortcutRegex": "Visual Paradigm",
+        "IconPath": "Tile.Core.Resources.Icons.VisualParadigm.png",
+        "BackgroundColor": "#C20000",
         "ForegroundText": "Light",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"

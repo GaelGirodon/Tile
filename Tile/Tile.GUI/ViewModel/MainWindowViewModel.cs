@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using Tile.Core.Config;
-using Tile.GUI.Properties;
 
 namespace Tile.GUI.ViewModel
 {

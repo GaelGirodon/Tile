@@ -99,6 +99,16 @@
     <EmbeddedResource Include="Resources\Icons\JetBrainsRider.png" />
     <EmbeddedResource Include="Resources\Icons\JetBrainsRubyMine.png" />
     <EmbeddedResource Include="Resources\Icons\JetBrainsWebStorm.png" />
+    <EmbeddedResource Include="Resources\Icons\Unity.png" />
+    <EmbeddedResource Include="Resources\Icons\TeamSpeak.png" />
+    <EmbeddedResource Include="Resources\Icons\Uplay.png" />
+    <EmbeddedResource Include="Resources\Icons\BattleNet.png" />
+    <EmbeddedResource Include="Resources\Icons\EpicGames.png" />
+    <EmbeddedResource Include="Resources\Icons\VisualParadigm.png" />
+    <EmbeddedResource Include="Resources\Icons\GIMP.png" />
+    <EmbeddedResource Include="Resources\Icons\CCleaner.png" />
+    <EmbeddedResource Include="Resources\Icons\Eclipse.png" />
+    <EmbeddedResource Include="Resources\Icons\GitHubDesktop.png" />
     <Content Include="Resources\VisualElementsManifest.xml" />
   </ItemGroup>
   <ItemGroup>

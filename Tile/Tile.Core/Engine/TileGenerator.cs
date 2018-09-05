@@ -98,13 +98,13 @@ namespace Tile.Core.Engine
                 _logger.Info("No tile can be generated for the requested applications");
                 return processedApps;
             } // else
-            _logger.Info($"Ready to process the following applications: {string.Join(", ", apps.Select(app => app.Key))}");
-
+            _logger.Info($"Ready to generate tiles for the following applications: {string.Join(", ", apps.Select(app => app.Key))}");
+            // Tiles generation
             foreach (var app in apps) {
                 try {
-                    Generate(tilesConfig[app.Key], app.Value, _settings.Overwrite);
+                    GenerateTileSet(tilesConfig[app.Key], app.Value, _settings.Sizes, _settings.Overwrite);
                     processedApps.Add(app.Key);
-                    _logger.Success($"'{app.Key} tile successfully generated!");
+                    _logger.Success($"'{app.Key}' tile successfully generated!");
                 } catch (Exception ex) {
                     _logger.Error($"Error processing '{app.Key}': {ex.Message}");
                 }
@@ -114,47 +114,74 @@ namespace Tile.Core.Engine
         }
 
         /// <summary>
-        /// Generate tiles and set it up
+        /// Reset the tiles (delete the assets) for the given applications.
         /// </summary>
-        /// <param name="tileConfig">Tile configuration</param>
-        public void Generate(TileConfig tileConfig, AppShortcut app, bool overwrite = false) {
+        /// <param name="apps">The applications information</param>
+        /// <returns>Processed applications names</returns>
+        public List<string> ResetTiles(Dictionary<string, AppShortcut> apps) {
+            var processedApps = new List<string>();
+            _logger.Info($"Ready to reset tiles for the following applications: {string.Join(", ", apps.Select(app => app.Key))}");
+            foreach (var app in apps) {
+                // Clean XML file and assets
+                if (ResetTileSet(app.Value)) {
+                    processedApps.Add(app.Key);
+                    _logger.Success($"'{app.Key}' tile successfully reset!");
+                } else {
+                    _logger.Warning($"Nothing to reset for '{app.Key}'.");
+                }
+            }
+            return processedApps;
+        }
+
+        /// <summary>
+        /// Generate tiles for an application and update the shortcut.
+        /// </summary>
+        /// <param name="tileConfig">Tile generation configuration</param>
+        /// <param name="app">Application shortcut and executable information</param>
+        /// <param name="sizes">Tiles dimensions</param>
+        /// <param name="overwrite">Overwrite existing tiles</param>
+        public static void GenerateTileSet(TileConfig tileConfig, AppShortcut app, TileSetSizes sizes, bool overwrite = false) {
             Image mediumTile, smallTile;
 
             // Tile generation
             if (tileConfig.GenerationModeAsEnum == TileGenerationMode.Custom) {
-                mediumTile = GenerateTile(_settings.Sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, _settings.Sizes.Medium.TileSize);
-                smallTile = GenerateTile(_settings.Sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, _settings.Sizes.Small.TileSize);
+                mediumTile = GenerateTile(sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, sizes.Medium.TileSize);
+                smallTile = GenerateTile(sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, sizes.Small.TileSize);
             } else {
-                mediumTile = GenerateTile(_settings.Sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, _settings.Sizes.Medium.IconSize.Scale(tileConfig.IconScale.MediumTile),
-                    tileConfig.GenerationModeAsEnum == TileGenerationMode.Adjusted ? -16 : 0);
-                smallTile = GenerateTile(_settings.Sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, _settings.Sizes.Small.IconSize.Scale(tileConfig.IconScale.SmallTile));
+                int shift = (int)(-0.1 * sizes.Medium.TileSize.Height);
+                mediumTile = GenerateTile(sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, sizes.Medium.IconSize.Scale(tileConfig.IconScale.MediumTile),
+                    tileConfig.GenerationModeAsEnum == TileGenerationMode.Adjusted ? shift : 0);
+                smallTile = GenerateTile(sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, sizes.Small.IconSize.Scale(tileConfig.IconScale.SmallTile));
             }
 
-            // Store the tiles in Assets folder
+            // Prepare assets directory and make some verifications
             string appPath = Path.GetDirectoryName(app.ExecutablePath);
-            string assetsPath = Path.Combine(Path.GetDirectoryName(app.ExecutablePath),
-                AssetsConstants.AssetsFolderName);
-            if (!overwrite && Directory.Exists(assetsPath))
-                throw new Exception("Assets directory already exists");
+            string assetsPath = Path.Combine(appPath, AssetsConstants.AssetsFolderName);
+            string xml = Path.Combine(appPath, Path.GetFileNameWithoutExtension(app.ExecutablePath)
+                + AssetsConstants.VisualElementsManifestXmlFileExtension);
+            string mediumTilePath = Path.Combine(assetsPath, AssetsConstants.MediumTileFileName);
+            string smallTilePath = Path.Combine(assetsPath, AssetsConstants.SmallTileFileName);
+
+            if (File.Exists(xml) && Directory.Exists(assetsPath) && !File.Exists(mediumTilePath) && !File.Exists(smallTilePath))
+                // Assets (not generated by Tile) already exist in the application directory
+                throw new Exception("Application already have built-in custom assets");
+            else if (!overwrite && File.Exists(xml))
+                // Custom assets (generated by Tile) already exist
+                throw new Exception("Custom assets already exist, delete them or set the override flag to true");
+            // else: create the assets directory
             Directory.CreateDirectory(assetsPath);
 
             // Generate the XML file (background color, logo paths, foreground color, and XML filename)
-            string xml = Path.Combine(appPath, Path.GetFileNameWithoutExtension(app.ExecutablePath)
-                + AssetsConstants.VisualElementsManifestXmlFileExtension);
-            if (!overwrite && File.Exists(xml)) {
-                Directory.Delete(assetsPath);
-                throw new Exception("Visual Elements Manifest XML file already exists");
-            }
             File.WriteAllText(xml, GenerateXMLVisualElements(
-                tileConfig.BackgroundColorAsObj, tileConfig.ForegroundColorAsEnum, tileConfig.ShowNameOnMediumTile));
+                tileConfig.BackgroundColorAsObj, tileConfig.ForegroundTextAsEnum, tileConfig.ShowNameOnMediumTile));
 
-            // Save tiles
-            mediumTile.Save(Path.Combine(assetsPath, AssetsConstants.MediumTileFileName), ImageFormat.Png);
-            smallTile.Save(Path.Combine(assetsPath, AssetsConstants.SmallTileFileName), ImageFormat.Png);
+            // Save tiles in assets directory
+            mediumTile.Save(mediumTilePath, ImageFormat.Png);
+            smallTile.Save(smallTilePath, ImageFormat.Png);
 
             // Set shortcut last write time to now (to update tile)
             File.SetLastWriteTime(app.ShortcutPath, DateTime.Now);
@@ -170,7 +197,7 @@ namespace Tile.Core.Engine
         /// <param name="yOffset">Icon Y offset
         /// (X centered and Y centered by default)</param>
         /// <returns>The generated tile</returns>
-        public Image GenerateTile(Size tileSize, Color backgroundColor,
+        public static Image GenerateTile(Size tileSize, Color backgroundColor,
             string iconFile, Size iconSize, int yOffset = 0) {
             // Create a new image
             var tile = new Bitmap(tileSize.Width, tileSize.Height);
@@ -202,15 +229,46 @@ namespace Tile.Core.Engine
         /// <summary>
         /// Generate the VisualElementsManifest XML file
         /// </summary>
+        /// <param name="backgroundColor">Tile background color (hexadecimal format)</param>
+        /// <param name="foregroundColor">Tile text color (Light or Dark)</param>
+        /// <param name="showNameOnMediumTile">Show the name on the medium tile</param>
         /// <returns>XML file content</returns>
-        public string GenerateXMLVisualElements(Color backgroundColor,
-            TileForegroundColor foregroundColor, bool showNameOnMediumTile) {
+        public static string GenerateXMLVisualElements(Color backgroundColor,
+            TileForegroundText foregroundColor, bool showNameOnMediumTile) {
             return Resources.VisualElementsManifest
-                           .Replace("{BackgroundColor}", ColorTranslator.ToHtml(backgroundColor))
-                           .Replace("{ShowNameOnSquare150x150Logo}", showNameOnMediumTile ? "on" : "off")
-                           .Replace("{ForegroundText}", foregroundColor.ToString().ToLower())
-                           .Replace("{Square150x150Logo}", AssetsConstants.AssetsFolderName + '\\' + AssetsConstants.MediumTileFileName)
-                           .Replace("{Square70x70Logo}", AssetsConstants.AssetsFolderName + '\\' + AssetsConstants.SmallTileFileName);
+                .Replace("{BackgroundColor}", ColorTranslator.ToHtml(backgroundColor))
+                .Replace("{ShowNameOnSquare150x150Logo}", showNameOnMediumTile ? "on" : "off")
+                .Replace("{ForegroundText}", foregroundColor.ToString().ToLower())
+                .Replace("{Square150x150Logo}", AssetsConstants.AssetsFolderName + '\\'
+                    + AssetsConstants.MediumTileFileName)
+                .Replace("{Square70x70Logo}", AssetsConstants.AssetsFolderName + '\\'
+                    + AssetsConstants.SmallTileFileName);
+        }
+
+        /// <summary>
+        /// Reset the tile for the given application.
+        /// </summary>
+        /// <param name="app">Application shortcut and executable information</param>
+        /// <returns>true if the tile was reset, false if nothing was done.</returns>
+        public static bool ResetTileSet(AppShortcut app) {
+            // App paths
+            string appPath = Path.GetDirectoryName(app.ExecutablePath);
+            string assetsPath = Path.Combine(appPath, AssetsConstants.AssetsFolderName);
+            string xml = Path.Combine(appPath, Path.GetFileNameWithoutExtension(app.ExecutablePath)
+                + AssetsConstants.VisualElementsManifestXmlFileExtension);
+            string mediumTilePath = Path.Combine(assetsPath, AssetsConstants.MediumTileFileName);
+            string smallTilePath = Path.Combine(assetsPath, AssetsConstants.SmallTileFileName);
+            // Clean XML file and assets
+            if (File.Exists(xml) && File.Exists(mediumTilePath) && File.Exists(smallTilePath)) {
+                File.Delete(xml);
+                File.Delete(mediumTilePath);
+                File.Delete(smallTilePath);
+                Directory.Delete(assetsPath);
+                File.SetLastWriteTime(app.ShortcutPath, DateTime.Now);
+                return true;
+            } else {
+                return false;
+            }
         }
 
         #endregion

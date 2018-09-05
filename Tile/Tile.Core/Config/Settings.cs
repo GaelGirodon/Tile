@@ -28,6 +28,11 @@ namespace Tile.Core.Config
         /// </summary>
         public static string DEFAULT_LOG_PATH = Path.Combine(APP_LOCATION_PATH, "log.txt");
 
+        /// <summary>
+        /// Default path to the tiles configuration file
+        /// </summary>
+        public static string DEFAULT_TILES_CONFIG_PATH = Path.Combine(APP_LOCATION_PATH, "tiles.json");
+
         #endregion
 
         #region Fields
@@ -53,15 +58,7 @@ namespace Tile.Core.Config
         /// <summary>
         /// Path to the tiles configuration file
         /// </summary>
-        public string TilesConfigPath {
-            get => _tilesConfigPath;
-            set {
-                if (value != null && !File.Exists(value) && !File.Exists(Path.Combine(APP_LOCATION_PATH, value)))
-                    throw new ArgumentException($"The tiles configuration file path '{value}' can't be found.");
-                _tilesConfigPath = value;
-            }
-        }
-        private string _tilesConfigPath;
+        public string TilesConfigPath { get; set; }
 
         /// <summary>
         /// Tiles and icons dimensions
@@ -95,8 +92,8 @@ namespace Tile.Core.Config
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs"),
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu), "Programs")
             };
-            Sizes = new TileSetSizes() { Medium = new TileSizes(270, 135), Small = new TileSizes(126, 78) };
-            TilesConfigPath = null; // Load embedded configuration file by default
+            Sizes = new TileSetSizes() { Medium = new TileSizes(270, 120), Small = new TileSizes(126, 78) };
+            TilesConfigPath = DEFAULT_TILES_CONFIG_PATH;
             Overwrite = false;
         }
 

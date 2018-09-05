@@ -60,13 +60,13 @@ namespace Tile.Core.Config
         /// <summary>
         /// Foreground text color (only light or dark)
         /// </summary>
-        public string ForegroundColor {
-            get => _foregroundColor.ToString();
-            set => _foregroundColor = (TileForegroundColor)Enum.Parse(
-                typeof(TileForegroundColor), value);
+        public string ForegroundText {
+            get => _foregroundText.ToString();
+            set => _foregroundText = (TileForegroundText)Enum.Parse(
+                typeof(TileForegroundText), value);
         }
-        public TileForegroundColor ForegroundColorAsEnum => _foregroundColor;
-        private TileForegroundColor _foregroundColor = TileForegroundColor.Light;
+        public TileForegroundText ForegroundTextAsEnum => _foregroundText;
+        private TileForegroundText _foregroundText = TileForegroundText.Light;
 
         /// <summary>
         /// Indicates if the application name must be shown on the medium tile
@@ -103,7 +103,7 @@ namespace Tile.Core.Config
 
         #endregion
 
-        #region Loading
+        #region Load & Export
 
         /// <summary>
         /// Load and deserialize tiles configuration from a file
@@ -113,7 +113,7 @@ namespace Tile.Core.Config
         /// <returns>The tiles configuration</returns>
         public static Dictionary<string, TileConfig> Load(string path = null) {
             string content;
-            if (path == null)
+            if (path == null || path == Settings.DEFAULT_TILES_CONFIG_PATH && !File.Exists(path))
                 content = Resources.TilesConfiguration;
             else if (File.Exists(path))
                 content = File.ReadAllText(path);
@@ -121,6 +121,14 @@ namespace Tile.Core.Config
                 throw new FileNotFoundException("The tiles configuration can't be found.");
             // else
             return JsonConvert.DeserializeObject<Dictionary<string, TileConfig>>(content);
+        }
+
+        /// <summary>
+        /// Write the embedded tiles configuration to a file.
+        /// </summary>
+        /// <param name="path">Path to the tiles configuration file</param>
+        public static void ExportEmbeddedConfiguration(string path) {
+            File.WriteAllText(path, Resources.TilesConfiguration);
         }
 
         #endregion

@@ -2,10 +2,21 @@
 
 A simple Windows utility to generate and set up the start menu tiles.
 
-**Tile** automatically looks for applications shortcuts, generate tiles
-and set them up in the start menu.
+## About
 
-## Quickstart
+**Tile** automatically looks for applications in the start menu
+and generates custom tile assets for these applications.
+Then, you only need to pin the programs you want on the start menu
+and their tile will have a custom look.
+
+*Tile* doesn't modify your start menu: no tile will be added and the layout
+will be preserved. Custom assets are generated for supported applications
+using Windows built-in Tile customization mechanism
+(*Tile* is just an automation tool to make things easier).
+When you will pin these applications on the start menu, they will
+automatically have a custom tile.
+
+## QuickStart
 
 - Download the [latest release](https://github.com/GaelGirodon/Tile/releases)
 - Extract the archive
@@ -17,7 +28,7 @@ and set them up in the start menu.
 
 - Look for applications shortcuts in the start menu
 - Locate target executable files
-- Dynamically generate tiles and set them up
+- Dynamically generate tiles for these applications
 
 ### Supported applications
 
@@ -63,7 +74,7 @@ next to `Tile.exe` that will override the default one.
 | `ShowNameOnMediumTile` | Show the application name on the medium tile or not                |
 | `GenerationMode`       | The [generation mode](Tile/Tile.Core/Config/TileGenerationMode.cs) |
 
-#### Shorcuts locations
+#### Shortcuts locations
 
 To customize directories where application shortcuts can be found,
 create a `settings.json` file next to `Tile.exe` with the following content:
@@ -80,16 +91,14 @@ create a `settings.json` file next to `Tile.exe` with the following content:
 
 - **Features**
   - [ ] Add new tiles presets
-  - [ ] Implement the "Clean tiles" feature
-  - [ ] Prevent replacing "original" tiles
   - [ ] Improve error handling
 - **Release, packaging & documentation**  
-  - [ ] Improve release process (bump version number...)
+  - [ ] Improve the release process (bump version number...)
   - [ ] Merge all `.dll` into a single `.exe` file
   - [ ] Improve [README.md](README.md)
-  - [ ] Add a FAQ/troubleshoot section
-  - [ ] Add a contribution guide
-  - [ ] Improve the application icon
+    - [ ] Add a _FAQ/troubleshoot_ section
+    - [ ] Add a _How it works_ section
+    - [ ] Add a contribution guide
 
 ## License
 

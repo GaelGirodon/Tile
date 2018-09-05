@@ -43,8 +43,6 @@ namespace Tile.GUI.View
 
         public void ApplicationsFound(int appsCount) {
             Logger?.Success($"Found {appsCount} applications to process");
-            MessageBox.Show(string.Format(Properties.Resources.MessageLookupFound, appsCount),
-                string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public void NoApplicationSelected() {
@@ -62,6 +60,43 @@ namespace Tile.GUI.View
         public void NoTilesGenerated() {
             Logger?.Info("No tiles were generated");
             MessageBox.Show(Properties.Resources.MessageNoTiles,
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+        public void TilesReset(int processedCount, int total, List<string> processedApps) {
+            string appsStr = string.Join(", ", processedApps);
+            Logger?.Success($"Processed {processedCount}/{total} application(s) ({appsStr})");
+            MessageBox.Show(string.Format(Properties.Resources.MessageResetTiles, processedCount, total, appsStr),
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public void NoTilesReset() {
+            Logger?.Info("No tiles were reset");
+            MessageBox.Show(Properties.Resources.MessageNoTilesToReset,
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+        public void LoadedTilesConfigFile() {
+            Logger?.Info("Successfully loaded the tiles configuration file.");
+            MessageBox.Show(Properties.Resources.MessageLoadedTilesConfigFile,
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public bool OverwriteTilesConfigFile() {
+            return MessageBox.Show(Properties.Resources.MessageOverwriteTilesConfigFile,
+                string.Empty, MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes;
+        }
+
+        public void ExposedTilesConfigFile(string path) {
+            Logger?.Info("Successfully exposed the tiles configuration file.");
+            string msg = string.Format(Properties.Resources.MessageExposedTilesConfigFile, path);
+            MessageBox.Show(msg, string.Empty, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        public void FailedExposingTilesConfigFile(Exception ex) {
+            string error = string.Join(Environment.NewLine, CollectExceptionMessages(ex));
+            Logger?.Warning("Failed exposing the tiles configuration file: " + error);
+            MessageBox.Show(Properties.Resources.MessageFailedExposingTilesConfigFile + Environment.NewLine + error,
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
 

@@ -123,26 +123,57 @@
   <data name="AppName" xml:space="preserve">
     <value>Tile</value>
   </data>
+  <data name="ButtonCustomExposeConfigFile" xml:space="preserve">
+    <value>Exposer le fichier de configuration</value>
+  </data>
+  <data name="ButtonCustomReloadConfigFile" xml:space="preserve">
+    <value>Recharger le fichier de configuration</value>
+  </data>
+  <data name="ButtonGenerateTiles" xml:space="preserve">
+    <value>Générer les tuiles</value>
+  </data>
+  <data name="ButtonResetTiles" xml:space="preserve">
+    <value>Réinitialiser les tuiles</value>
+  </data>
+  <data name="ButtonSearchApplications" xml:space="preserve">
+    <value>Rechercher les applications</value>
+  </data>
+  <data name="MessageExposedTilesConfigFile" xml:space="preserve">
+    <value>Le fichier de configuration des tuiles a bien été exporté dans : {0}. Vous pouvez maintenant l'ouvrir, le modifier et le recharger pour générer des tuiles avec une apparence personnalisée.</value>
+  </data>
+  <data name="MessageFailedExposingTilesConfigFile" xml:space="preserve">
+    <value>Impossible d'exporter le fichier de configuration des tuiles. Vérifiez que celui-ci n'est pas déjà ouvert dans un autre programme.</value>
+  </data>
   <data name="MessageInvalidSettings" xml:space="preserve">
     <value>Les paramètres de l'application sont invalides.</value>
   </data>
   <data name="MessageInvalidTilesConfig" xml:space="preserve">
     <value>La configuration des tuiles est invalide.</value>
   </data>
-  <data name="MessageLookupFound" xml:space="preserve">
-    <value>{0} application(s) trouvée(s).</value>
+  <data name="MessageLoadedTilesConfigFile" xml:space="preserve">
+    <value>La configuration de la génération des tuiles a bien été chargée.</value>
   </data>
   <data name="MessageLookupNoApplication" xml:space="preserve">
-    <value>Aucune application n'a pu être trouvée avec le paramétrage actuel.</value>
+    <value>Aucune application à personnaliser n'a pu être trouvée dans le menu démarrer.</value>
   </data>
   <data name="MessageNoApplicationSelected" xml:space="preserve">
     <value>Au moins une application doit être sélectionnée.</value>
   </data>
   <data name="MessageNoTiles" xml:space="preserve">
-    <value>Aucune tuile n'a pu être générée, veuillez vérifier le paramétrage ou consultez la journalisation pour plus d'informations.</value>
+    <value>Aucune tuile n'a pu être générée, veuillez vérifier le paramétrage ou consultez la journalisation pour plus d'informations.
+Si des tuiles personnalisées existent déjà et que vous souhaitez les remplacer, cochez l'option "Remplacer les tuiles existantes".</value>
+  </data>
+  <data name="MessageNoTilesToReset" xml:space="preserve">
+    <value>Aucune des applications n'avait de tuile personnalisée à réinitialiser.</value>
+  </data>
+  <data name="MessageOverwriteTilesConfigFile" xml:space="preserve">
+    <value>Le fichier de configuration des tuiles existe déjà. Souhaitez-vous le remplacer ?</value>
   </data>
   <data name="MessageProcessedApplications" xml:space="preserve">
-    <value>{0}/{1} application(s) traitées ({2}).</value>
+    <value>{0}/{1} application(s) traitées ({2}). Épinglez les applications souhaitées au menu démarrer pour afficher les tuiles personnalisées.</value>
+  </data>
+  <data name="MessageResetTiles" xml:space="preserve">
+    <value>{0}/{1} application(s) traitées ({2}). Les tuiles ont bien été réinitialisées.</value>
   </data>
   <data name="SettingsOverwrite" xml:space="preserve">
     <value>Remplacer les tuiles existantes</value>
@@ -153,16 +184,13 @@
   <data name="SettingsTitle" xml:space="preserve">
     <value>Paramètres</value>
   </data>
-  <data name="TileGenerationClearTiles" xml:space="preserve">
-    <value>Effacer les tuiles générées</value>
+  <data name="TitleCustomizeTiles" xml:space="preserve">
+    <value>Personnaliser l'apparence des tuiles</value>
   </data>
-  <data name="TileGenerationRunButton" xml:space="preserve">
-    <value>Générer les tuiles</value>
+  <data name="TitleSelectApps" xml:space="preserve">
+    <value>Sélectionner les applications à personnaliser</value>
   </data>
-  <data name="TileGenerationSearchApplicationsButton" xml:space="preserve">
-    <value>Rechercher les applications</value>
-  </data>
-  <data name="TileGenerationTitle" xml:space="preserve">
+  <data name="TitleTileGeneration" xml:space="preserve">
     <value>Génération des tuiles</value>
   </data>
 </root>

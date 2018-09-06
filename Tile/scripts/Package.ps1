@@ -55,7 +55,7 @@ Remove-Item -Recurse $TmpDir
 # Compute checksum
 Write-Host -ForegroundColor Yellow "Computing and writing checksum to $ChecksumFile"
 $Hash = (Get-FileHash -Algorithm SHA256 $ZipFile).Hash.ToLower()
-Write-Output "$Hash *Tile.zip" > $ChecksumFile
+Set-Content -Path $ChecksumFile -Value "$Hash *Tile.zip`n" -Encoding ASCII -NoNewline
 
 # Success message
 Write-Host -ForegroundColor Green "Package successfully generated!"

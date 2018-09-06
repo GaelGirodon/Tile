@@ -18,6 +18,16 @@ namespace Tile.Core.Engine
     /// </summary>
     public class TileGenerator
     {
+        #region Constants
+
+        /// <summary>
+        /// Shift percentage of the icon on the Y axis
+        /// for the medium tile
+        /// </summary>
+        private const double ADJUSTED_ICON_Y_SHIFT = -0.08;
+
+        #endregion
+
         #region Fields
 
         /// <summary>
@@ -141,23 +151,6 @@ namespace Tile.Core.Engine
         /// <param name="sizes">Tiles dimensions</param>
         /// <param name="overwrite">Overwrite existing tiles</param>
         public static void GenerateTileSet(TileConfig tileConfig, AppShortcut app, TileSetSizes sizes, bool overwrite = false) {
-            Image mediumTile, smallTile;
-
-            // Tile generation
-            if (tileConfig.GenerationModeAsEnum == TileGenerationMode.Custom) {
-                mediumTile = GenerateTile(sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, sizes.Medium.TileSize);
-                smallTile = GenerateTile(sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, sizes.Small.TileSize);
-            } else {
-                int shift = (int)(-0.1 * sizes.Medium.TileSize.Height);
-                mediumTile = GenerateTile(sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, sizes.Medium.IconSize.Scale(tileConfig.IconScale.MediumTile),
-                    tileConfig.GenerationModeAsEnum == TileGenerationMode.Adjusted ? shift : 0);
-                smallTile = GenerateTile(sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
-                    tileConfig.IconPath, sizes.Small.IconSize.Scale(tileConfig.IconScale.SmallTile));
-            }
-
             // Prepare assets directory and make some verifications
             string appPath = Path.GetDirectoryName(app.ExecutablePath);
             string assetsPath = Path.Combine(appPath, AssetsConstants.AssetsFolderName);
@@ -178,6 +171,22 @@ namespace Tile.Core.Engine
             // Generate the XML file (background color, logo paths, foreground color, and XML filename)
             File.WriteAllText(xml, GenerateXMLVisualElements(
                 tileConfig.BackgroundColorAsObj, tileConfig.ForegroundTextAsEnum, tileConfig.ShowNameOnMediumTile));
+
+            // Tile generation
+            Image mediumTile, smallTile;
+            if (tileConfig.GenerationModeAsEnum == TileGenerationMode.Custom) {
+                mediumTile = GenerateTile(sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, sizes.Medium.TileSize);
+                smallTile = GenerateTile(sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, sizes.Small.TileSize);
+            } else {
+                int shift = (int)(ADJUSTED_ICON_Y_SHIFT * sizes.Medium.TileSize.Height);
+                mediumTile = GenerateTile(sizes.Medium.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, sizes.Medium.IconSize.Scale(tileConfig.IconScale.MediumTile),
+                    tileConfig.GenerationModeAsEnum == TileGenerationMode.Adjusted ? shift : 0);
+                smallTile = GenerateTile(sizes.Small.TileSize, tileConfig.BackgroundColorAsObj,
+                    tileConfig.IconPath, sizes.Small.IconSize.Scale(tileConfig.IconScale.SmallTile));
+            }
 
             // Save tiles in assets directory
             mediumTile.Save(mediumTilePath, ImageFormat.Png);

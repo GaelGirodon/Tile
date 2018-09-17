@@ -109,6 +109,9 @@
     <EmbeddedResource Include="Resources\Icons\CCleaner.png" />
     <EmbeddedResource Include="Resources\Icons\Eclipse.png" />
     <EmbeddedResource Include="Resources\Icons\GitHubDesktop.png" />
+    <EmbeddedResource Include="Resources\Icons\Audacity.png" />
+    <EmbeddedResource Include="Resources\Icons\SoapUI.png" />
+    <EmbeddedResource Include="Resources\Icons\DbVisualizer.png" />
     <Content Include="Resources\VisualElementsManifest.xml" />
   </ItemGroup>
   <ItemGroup>

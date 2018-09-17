@@ -138,11 +138,17 @@
   <data name="ButtonSearchApplications" xml:space="preserve">
     <value>Lookup applications</value>
   </data>
+  <data name="InfoSelectApps" xml:space="preserve">
+    <value>Select the applications for which you want to generate custom tiles. If a supported application is not displayed in the list, check that there is only one shortcut (with the right name) in the start menu. Open the log file for more details.</value>
+  </data>
   <data name="MessageExposedTilesConfigFile" xml:space="preserve">
     <value>The tiles configuration file was successfully exported to: {0}. You can now open this file, customize it and reload it to generate tiles with a custom look.</value>
   </data>
   <data name="MessageFailedExposingTilesConfigFile" xml:space="preserve">
     <value>Failed exporting the tiles configuration file. Check that the file isn't already opened by another program.</value>
+  </data>
+  <data name="MessageInvalidLogFile" xml:space="preserve">
+    <value>Unable to write to the log file.</value>
   </data>
   <data name="MessageInvalidSettings" xml:space="preserve">
     <value>The application settings are invalid.</value>

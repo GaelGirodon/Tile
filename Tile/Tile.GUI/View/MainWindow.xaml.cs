@@ -91,14 +91,20 @@ namespace Tile.GUI.View
             }
             // Initialize the logger
             _msg.Logger = _logger;
-            _logger.Init();
+            try {
+                _logger.Init();
+            } catch (Exception ex) {
+                _msg.InvalidLogFile(ex);
+                Environment.Exit(2);
+                return;
+            }
             _logger.Success("Loaded settings");
             // Load tiles configuration
             try {
                 _tilesConfig = TileConfig.Load(_settings.TilesConfigPath);
             } catch (Exception ex) {
                 _msg.InvalidTilesConfig(ex);
-                Environment.Exit(2);
+                Environment.Exit(3);
             }
             _logger.Success("Loaded tiles configuration");
             // Initialize the tile generator

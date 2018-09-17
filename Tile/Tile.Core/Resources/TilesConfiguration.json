@@ -83,6 +83,14 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "Audacity": {
+        "ShortcutRegex": "Audacity",
+        "IconPath": "Tile.Core.Resources.Icons.Audacity.png",
+        "BackgroundColor": "#192EA4",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "Battle.net": {
         "ShortcutRegex": "Battle\\.net",
         "IconPath": "Tile.Core.Resources.Icons.BattleNet.png",
@@ -95,6 +103,14 @@
         "ShortcutRegex": "CCleaner",
         "IconPath": "Tile.Core.Resources.Icons.CCleaner.png",
         "BackgroundColor": "#D72C15",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "DbVisualizer": {
+        "ShortcutRegex": "DbVisualizer",
+        "IconPath": "Tile.Core.Resources.Icons.DbVisualizer.png",
+        "BackgroundColor": "#85C013",
         "ForegroundText": "Light",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
@@ -247,6 +263,14 @@
         "ShortcutRegex": "Slack",
         "IconPath": "Tile.Core.Resources.Icons.Slack.png",
         "BackgroundColor": "#444444",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "SoapUI": {
+        "ShortcutRegex": "SoapUI",
+        "IconPath": "Tile.Core.Resources.Icons.SoapUI.png",
+        "BackgroundColor": "#6FB43F",
         "ForegroundText": "Light",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"

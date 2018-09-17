@@ -35,6 +35,13 @@ namespace Tile.GUI.View
                 string.Empty, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
+        public void InvalidLogFile(Exception ex) {
+            string error = string.Join(Environment.NewLine, CollectExceptionMessages(ex));
+            Logger?.Error("Unable to write to the log file: " + error);
+            MessageBox.Show(Properties.Resources.MessageInvalidLogFile + Environment.NewLine + error,
+                string.Empty, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
         public void NoApplicationFound() {
             Logger?.Warning("No application to process, check the shortcuts locations");
             MessageBox.Show(Properties.Resources.MessageLookupNoApplication,

@@ -144,6 +144,9 @@
   <data name="MessageFailedExposingTilesConfigFile" xml:space="preserve">
     <value>Failed exporting the tiles configuration file. Check that the file isn't already opened by another program.</value>
   </data>
+  <data name="MessageInvalidLogFile" xml:space="preserve">
+    <value>Unable to write to the log file.</value>
+  </data>
   <data name="MessageInvalidSettings" xml:space="preserve">
     <value>The application settings are invalid.</value>
   </data>

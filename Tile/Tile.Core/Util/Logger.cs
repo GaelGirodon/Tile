@@ -34,9 +34,9 @@ namespace Tile.Core.Util
         /// </summary>
         public void Init() {
             try {
-                Log("======================= " + DateTime.Now + " =======================");
+                Log("======================= " + DateTime.Now + " =======================", true);
             } catch (Exception e) {
-                throw new IOException($"Unable to write in the log file: {LogFile}", e);
+                throw new IOException($"Unable to write to the log file: {LogFile}", e);
             }
         }
 
@@ -46,8 +46,14 @@ namespace Tile.Core.Util
         /// Log a message only in the log file
         /// </summary>
         /// <param name="message">The message to log</param>
-        private void Log(string message) {
-            File.AppendAllText(LogFile, message + Environment.NewLine);
+        /// <param name="throwOnError">Throw an exception if an error happens writing to the file</param>
+        private void Log(string message, bool throwOnError = false) {
+            try {
+                File.AppendAllText(LogFile, message + Environment.NewLine);
+            } catch (Exception ex) {
+                if (throwOnError)
+                    throw ex;
+            }
         }
 
         /// <summary>

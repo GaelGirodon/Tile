@@ -142,6 +142,15 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to write to the log file..
+        /// </summary>
+        public static string MessageInvalidLogFile {
+            get {
+                return ResourceManager.GetString("MessageInvalidLogFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The application settings are invalid..
         /// </summary>
         public static string MessageInvalidSettings {

@@ -144,6 +144,9 @@
   <data name="MessageFailedExposingTilesConfigFile" xml:space="preserve">
     <value>Impossible d'exporter le fichier de configuration des tuiles. Vérifiez que celui-ci n'est pas déjà ouvert dans un autre programme.</value>
   </data>
+  <data name="MessageInvalidLogFile" xml:space="preserve">
+    <value>Impossible d'écrire dans le fichier journal.</value>
+  </data>
   <data name="MessageInvalidSettings" xml:space="preserve">
     <value>Les paramètres de l'application sont invalides.</value>
   </data>

@@ -124,6 +124,15 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select the applications for which you want to generate custom tiles. If a supported application is not displayed in the list, check that there is only one shortcut (with the right name) in the start menu. Open the log file for more details..
+        /// </summary>
+        public static string InfoSelectApps {
+            get {
+                return ResourceManager.GetString("InfoSelectApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The tiles configuration file was successfully exported to: {0}. You can now open this file, customize it and reload it to generate tiles with a custom look..
         /// </summary>
         public static string MessageExposedTilesConfigFile {

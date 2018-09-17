@@ -41,7 +41,7 @@
                     <CheckBox Content="{x:Static p:Resources.SettingsOverwrite}" Margin="0,8" Grid.ColumnSpan="2"
                               IsChecked="{Binding Overwrite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <!-- Reset tiles -->
-                    <Button Grid.Column="1" Background="#EE4444" Foreground="#FFFFFF" BorderBrush="#AA2222" Click="ResetTiles">
+                    <Button Grid.Column="1" Background="#FF9617" Foreground="#FFFFFF" BorderBrush="#E27B00" Click="ResetTiles">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="❌" Margin="-4,0,4,0"></TextBlock>
@@ -88,12 +88,22 @@
             <DockPanel Margin="32,16">
                 <!-- Global selector -->
                 <Border DockPanel.Dock="Top" BorderBrush="#FFABADB3" BorderThickness="1,1,1,0">
-                    <StackPanel Orientation="Horizontal" Background="#EAEAEA">
+                    <Grid Background="#EAEAEA">
                         <CheckBox Margin="6,8"
                                   IsChecked="{Binding SelectAllApps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                        <TextBlock Margin="0,7" FontWeight="DemiBold"
+                        <TextBlock Margin="28,7" FontWeight="DemiBold"
                                    Text="{x:Static p:Resources.TitleSelectApps}" />
-                    </StackPanel>
+                        <!-- Info -->
+                        <Grid HorizontalAlignment="Right" Margin="0,0,8,0">
+                            <Grid.ToolTip>
+                                <TextBlock Text="{x:Static p:Resources.InfoSelectApps}"
+                                           MaxWidth="480" TextWrapping="Wrap" />
+                            </Grid.ToolTip>
+                            <Ellipse Width="20" Height="20" Fill="#00AAEE" />
+                            <TextBlock Text="i" FontFamily="Georgia" FontWeight="Black" FontSize="18" Foreground="#FFFFFF"
+                                       HorizontalAlignment="Right" Margin="0,6,7,0" />
+                        </Grid>
+                    </Grid>
                 </Border>
                 <!-- Applications for which to generate tiles -->
                 <ListBox ItemsSource="{Binding SelectedApps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"

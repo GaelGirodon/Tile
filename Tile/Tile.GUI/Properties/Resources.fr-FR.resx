@@ -138,6 +138,9 @@
   <data name="ButtonSearchApplications" xml:space="preserve">
     <value>Rechercher les applications</value>
   </data>
+  <data name="InfoSelectApps" xml:space="preserve">
+    <value>Sélectionnez les applications pour lesquelles vous souhaitez générer des tuiles personnalisées. Si une application supportée n'est pas affichée dans la liste, vérifiez qu'il existe un et un seul raccourci (avec le bon nom) dans le menu démarrer. Vous pouvez ouvrir le fichier journal pour plus de détails.</value>
+  </data>
   <data name="MessageExposedTilesConfigFile" xml:space="preserve">
     <value>Le fichier de configuration des tuiles a bien été exporté dans : {0}. Vous pouvez maintenant l'ouvrir, le modifier et le recharger pour générer des tuiles avec une apparence personnalisée.</value>
   </data>

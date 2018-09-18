@@ -112,6 +112,8 @@
     <EmbeddedResource Include="Resources\Icons\Audacity.png" />
     <EmbeddedResource Include="Resources\Icons\SoapUI.png" />
     <EmbeddedResource Include="Resources\Icons\DbVisualizer.png" />
+    <EmbeddedResource Include="Resources\Icons\WinSCP.png" />
+    <EmbeddedResource Include="Resources\Icons\MobaXterm.png" />
     <Content Include="Resources\VisualElementsManifest.xml" />
   </ItemGroup>
   <ItemGroup>

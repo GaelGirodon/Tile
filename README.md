@@ -92,6 +92,8 @@ create a `settings.json` file next to `Tile.exe` with the following content:
 - **Features**
   - [ ] Add new tiles presets
   - [ ] Improve error handling
+  - [ ] Improve tiles configuration reload (live reload?)
+  - [ ] Make tiles easier to customize
 - **Release, packaging & documentation**  
   - [ ] Improve the release process (bump version number...)
   - [ ] Merge all `.dll` into a single `.exe` file
@@ -99,6 +101,7 @@ create a `settings.json` file next to `Tile.exe` with the following content:
     - [ ] Add a _FAQ/troubleshoot_ section
     - [ ] Add a _How it works_ section
     - [ ] Add a contribution guide
+    - [ ] Add a video tutorial (and/or screenshots)
 
 ## License
 

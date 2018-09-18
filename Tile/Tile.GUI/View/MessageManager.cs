@@ -116,7 +116,7 @@ namespace Tile.GUI.View
         /// </summary>
         /// <param name="ex">The parent exception</param>
         /// <returns>All the exception messages</returns>
-        public List<string> CollectExceptionMessages(Exception ex) {
+        public static List<string> CollectExceptionMessages(Exception ex) {
             Exception current = ex;
             var messages = new List<string>();
             do {

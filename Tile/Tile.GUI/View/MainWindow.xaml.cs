@@ -86,7 +86,7 @@ namespace Tile.GUI.View
                 _logger = new Logger(_settings.LogFilePath);
             } catch (Exception ex) {
                 _msg.InvalidSettings(ex);
-                Environment.Exit(1);
+                Environment.Exit(11);
                 return;
             }
             // Initialize the logger
@@ -95,7 +95,7 @@ namespace Tile.GUI.View
                 _logger.Init();
             } catch (Exception ex) {
                 _msg.InvalidLogFile(ex);
-                Environment.Exit(2);
+                Environment.Exit(12);
                 return;
             }
             _logger.Success("Loaded settings");
@@ -104,7 +104,7 @@ namespace Tile.GUI.View
                 _tilesConfig = TileConfig.Load(_settings.TilesConfigPath);
             } catch (Exception ex) {
                 _msg.InvalidTilesConfig(ex);
-                Environment.Exit(3);
+                Environment.Exit(13);
             }
             _logger.Success("Loaded tiles configuration");
             // Initialize the tile generator

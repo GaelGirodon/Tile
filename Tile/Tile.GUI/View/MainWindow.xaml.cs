@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Input;
 using Tile.Core.Config;
 using Tile.Core.Engine;
 using Tile.Core.Util;
@@ -215,5 +217,22 @@ namespace Tile.GUI.View
 
         #endregion
 
+        #region Help dialog
+
+        /// <summary>
+        /// Open the "about" dialog to display the application name,
+        /// the version number, the description and the repository URL.
+        /// </summary>
+        /// <param name="sender">Event sender</param>
+        /// <param name="e">Event arguments</param>
+        private void OpenAboutDialog(object sender, MouseButtonEventArgs e) {
+            var v = Assembly.GetExecutingAssembly().GetName().Version;
+            var version = $"{v.Major}.{v.Minor}.{v.Build}";
+            MessageBox.Show(Properties.Resources.AboutDialogContent.Replace("{version}", version),
+                Properties.Resources.AboutDialogTitle,
+                MessageBoxButton.OK, MessageBoxImage.Question);
+        }
+
+        #endregion
     }
 }

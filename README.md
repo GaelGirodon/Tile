@@ -1,6 +1,6 @@
 # Tile
 
-A simple Windows utility to generate and set up the start menu tiles.
+A simple Windows utility to customize the start menu tiles.
 
 ## About
 

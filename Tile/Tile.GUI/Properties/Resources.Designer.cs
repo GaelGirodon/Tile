@@ -61,7 +61,27 @@ namespace Tile.GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Windows Start Menu Tile Generator.
+        ///   Looks up a localized string similar to Tile {version}
+        ///Windows start menu tiles customization
+        ///https://github.com/GaelGirodon/Tile.
+        /// </summary>
+        public static string AboutDialogContent {
+            get {
+                return ResourceManager.GetString("AboutDialogContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About Tile.
+        /// </summary>
+        public static string AboutDialogTitle {
+            get {
+                return ResourceManager.GetString("AboutDialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows start menu tiles customization.
         /// </summary>
         public static string AppDescription {
             get {

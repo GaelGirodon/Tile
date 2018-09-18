@@ -14,9 +14,11 @@
             <!-- Header -->
             <StackPanel DockPanel.Dock="Top" Background="#00AAEE">
                 <TextBlock Text="{x:Static p:Resources.AppName}" Margin="0,16,0,8"
-                           Foreground="#FFFFFF" FontSize="32" TextAlignment="Center" />
-                <TextBlock Text="{x:Static p:Resources.AppDescription}" Margin="0,0,0,16"
-                           Foreground="#FFFFFF" FontSize="14" TextAlignment="Center" />
+                           Foreground="#FFFFFF" FontSize="32" TextAlignment="Center"
+                           Cursor="Help" MouseDown="OpenAboutDialog" />
+                <TextBlock Text="{x:Static p:Resources.AppDescription}" Margin="32,0,32,16"
+                           Foreground="#FFFFFF" FontSize="14" TextAlignment="Center"
+                           TextWrapping="Wrap" />
             </StackPanel>
             <!-- Footer -->
             <StackPanel DockPanel.Dock="Bottom" Background="#EAEAEA">
@@ -100,8 +102,8 @@
                                            MaxWidth="480" TextWrapping="Wrap" />
                             </Grid.ToolTip>
                             <Ellipse Width="20" Height="20" Fill="#00AAEE" />
-                            <TextBlock Text="i" FontFamily="Georgia" FontWeight="Black" FontSize="18" Foreground="#FFFFFF"
-                                       HorizontalAlignment="Right" Margin="0,6,7,0" />
+                            <TextBlock Text="i" FontFamily="Georgia" FontWeight="Black" FontSize="16" Foreground="#FFFFFF"
+                                       HorizontalAlignment="Right" Margin="0,7,7,0" />
                         </Grid>
                     </Grid>
                 </Border>

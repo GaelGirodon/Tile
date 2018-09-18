@@ -117,8 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutDialogContent" xml:space="preserve">
+    <value>Tile {version}
+Personnalisation des tuiles du menu démarrer Windows
+https://github.com/GaelGirodon/Tile</value>
+  </data>
+  <data name="AboutDialogTitle" xml:space="preserve">
+    <value>A propos de Tile</value>
+  </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>Générateur de tuiles pour le menu démarrer Windows</value>
+    <value>Personnalisation des tuiles du menu démarrer Windows</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Tile</value>

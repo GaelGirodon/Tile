@@ -227,6 +227,14 @@
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     },
+    "MobaXterm": {
+        "ShortcutRegex": "MobaXterm",
+        "IconPath": "Tile.Core.Resources.Icons.MobaXterm.png",
+        "BackgroundColor": "#319BC9",
+        "ForegroundText": "Light",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
     "NetBeans": {
         "ShortcutRegex": "NetBeans",
         "IconPath": "Tile.Core.Resources.Icons.NetBeans.png",
@@ -358,6 +366,13 @@
         "ShortcutRegex": "(Wamp|WAMP)",
         "IconPath": "Tile.Core.Resources.Icons.WAMP.png",
         "BackgroundColor": "#FF0094",
+        "ShowNameOnMediumTile": true,
+        "GenerationMode": "Adjusted"
+    },
+    "WinSCP": {
+        "ShortcutRegex": "WinSCP",
+        "IconPath": "Tile.Core.Resources.Icons.WinSCP.png",
+        "BackgroundColor": "#4D4D4D",
         "ShowNameOnMediumTile": true,
         "GenerationMode": "Adjusted"
     }

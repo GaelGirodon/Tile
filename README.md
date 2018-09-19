@@ -1,6 +1,6 @@
 # Tile
 
-A simple Windows utility to customize the start menu tiles.
+A simple Windows 10 utility to customize the start menu tiles.
 
 ## About
 
@@ -69,7 +69,7 @@ next to `Tile.exe` that will override the default one.
 | ---------------------- | ------------------------------------------------------------------ |
 | `ShortcutRegex`        | A regex to find the application shortcut                           |
 | `IconPath`             | Path to the icon (can be relative to `Tile.exe` directory)         |
-| `BackgroundColor`      | Tile background color                                              |
+| `BackgroundColor`      | Tile background color (in hexadecimal format: `#FFFFFF`)           |
 | `ForegroundText`       | Foreground text color (only `Light` or `Dark`)                     |
 | `ShowNameOnMediumTile` | Show the application name on the medium tile or not                |
 | `GenerationMode`       | The [generation mode](Tile/Tile.Core/Config/TileGenerationMode.cs) |

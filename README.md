@@ -1,6 +1,14 @@
 # Tile
 
-A simple Windows utility to customize the start menu tiles.
+A simple Windows 10 utility to customize the start menu tiles.
+
+![Demonstration of the application](./Tile/resources/dist/tile-demo.gif)
+
+## QuickStart
+
+- Download the [latest release](https://github.com/GaelGirodon/Tile/releases)
+- Extract the archive
+- Launch `Tile.exe` and follow the instructions
 
 ## About
 
@@ -16,11 +24,7 @@ using Windows built-in Tile customization mechanism
 When you will pin these applications on the start menu, they will
 automatically have a custom tile.
 
-## QuickStart
-
-- Download the [latest release](https://github.com/GaelGirodon/Tile/releases)
-- Extract the archive
-- Launch `Tile.exe` and follow the instructions
+![Examples of generated tiles](./Tile/resources/dist/mosaic-tiles.png)
 
 ## Features
 
@@ -69,7 +73,7 @@ next to `Tile.exe` that will override the default one.
 | ---------------------- | ------------------------------------------------------------------ |
 | `ShortcutRegex`        | A regex to find the application shortcut                           |
 | `IconPath`             | Path to the icon (can be relative to `Tile.exe` directory)         |
-| `BackgroundColor`      | Tile background color                                              |
+| `BackgroundColor`      | Tile background color (in hexadecimal format: `#FFFFFF`)           |
 | `ForegroundText`       | Foreground text color (only `Light` or `Dark`)                     |
 | `ShowNameOnMediumTile` | Show the application name on the medium tile or not                |
 | `GenerationMode`       | The [generation mode](Tile/Tile.Core/Config/TileGenerationMode.cs) |
@@ -101,7 +105,6 @@ create a `settings.json` file next to `Tile.exe` with the following content:
     - [ ] Add a _FAQ/troubleshoot_ section
     - [ ] Add a _How it works_ section
     - [ ] Add a contribution guide
-    - [ ] Add a video tutorial (and/or screenshots)
 
 ## License
 

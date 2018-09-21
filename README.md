@@ -2,7 +2,7 @@
 
 A simple Windows 10 utility to customize the start menu tiles.
 
-![Tile demonstration](./Tile/resources/dist/tile-demo.gif)
+![Demonstration of the application](./Tile/resources/dist/tile-demo.gif)
 
 ## QuickStart
 
@@ -24,7 +24,7 @@ using Windows built-in Tile customization mechanism
 When you will pin these applications on the start menu, they will
 automatically have a custom tile.
 
-![Tile demonstration](./Tile/resources/dist/mosaic-tiles.png)
+![Examples of generated tiles](./Tile/resources/dist/mosaic-tiles.png)
 
 ## Features
 
@@ -105,7 +105,6 @@ create a `settings.json` file next to `Tile.exe` with the following content:
     - [ ] Add a _FAQ/troubleshoot_ section
     - [ ] Add a _How it works_ section
     - [ ] Add a contribution guide
-    - [X] Add a video tutorial (and/or screenshots)
 
 ## License
 

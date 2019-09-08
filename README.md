@@ -78,26 +78,30 @@ next to `Tile.exe` that will override the default one.
 | `ShowNameOnMediumTile` | Show the application name on the medium tile or not                |
 | `GenerationMode`       | The [generation mode](Tile/Tile.Core/Config/TileGenerationMode.cs) |
 
-#### Shortcuts locations
+### Settings
 
-To customize directories where application shortcuts can be found,
-create a `settings.json` file next to `Tile.exe` with the following content:
+Create a [`settings.json`](Tile/Tile.Core/Config/Settings.cs) file
+next to `Tile.exe` to customize **Tile**.
+
+#### Settings specification
+
+| Field                | Description                          |
+| -------------------- | ------------------------------------ |
+| `LogFilePath`        | Path to the log file                 |
+| `ShortcutsLocations` | Additional shortcuts locations       |
+| `TilesConfigPath`    | Path to the tiles configuration file |
+| `Sizes`              | Tiles and icons size                 |
+| `Overwrite`          | Overwrite existing tiles             |
+
+#### Sample settings file
 
 ```json
 {
+  "LogFilePath": "log.txt",
   "ShortcutsLocations": [
     "C:\\Absolute\\Path\\To\\Directory\\Containing\\Shortcuts"
-  ]
-}
-```
-
-#### Tiles & icons size
-
-To customize the tiles generation, create a `settings.json` file
-next to `Tile.exe` with the following content:
-
-```json
-{
+  ],
+  "TilesConfigPath": "tiles.json",
   "Sizes": {
     "Medium": {
       "Tile": [512, 512],
@@ -107,7 +111,8 @@ next to `Tile.exe` with the following content:
       "Tile": [256, 256],
       "Icon": [160, 160]
     }
-  }
+  },
+  "Overwrite": false
 }
 ```
 

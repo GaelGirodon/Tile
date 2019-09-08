@@ -91,6 +91,26 @@ create a `settings.json` file next to `Tile.exe` with the following content:
 }
 ```
 
+#### Tiles & icons size
+
+To customize the tiles generation, create a `settings.json` file
+next to `Tile.exe` with the following content:
+
+```json
+{
+  "Sizes": {
+    "Medium": {
+      "Tile": [512, 512],
+      "Icon": [240, 240]
+    },
+    "Small": {
+      "Tile": [256, 256],
+      "Icon": [160, 160]
+    }
+  }
+}
+```
+
 ## Tasks
 
 - **Features**
